@@ -5,8 +5,21 @@ import Navbar from "./components/layout/Navbar";
 import Section from "./components/layout/Section";
 import dummyText from "./DummyText";
 import Search from "./components/Search";
+import Login from "./components/Login";
+
 class App extends Component {
+  
+  state={
+    
+  }
+  handleChange = (e, { value }) => this.setState({value})
+
+  
+  
   render() {
+    const { value } = this.state;
+    console.log(this.state);
+    
     return (
       <div>
        <Navbar />
@@ -17,7 +30,11 @@ class App extends Component {
           dark={true}
           id="section1"
         />
-        <Search />
+        <Search 
+          value={value}
+          onChange={this.handleChange}
+        />
+        <Login />
         <Section
           title="Section 2"
           subtitle={dummyText}

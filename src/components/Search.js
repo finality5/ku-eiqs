@@ -4,9 +4,8 @@ import {Subjects} from './Subject';
 
 
 
-
-
-const DropdownExampleMultipleSearchSelection = () => (
+export default function DropdownExampleMultipleSearchSelection({value , onChange }){
+  return(
   <Dropdown
     placeholder='Subjects'
     fluid
@@ -14,8 +13,11 @@ const DropdownExampleMultipleSearchSelection = () => (
     search
     selection
     options={Subjects}
+    onChange={onChange}
+    value={value}
     
   />
-)
+  );
+}
 
-export default DropdownExampleMultipleSearchSelection
+
