@@ -1,25 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/layout/Header';
+import Navbar from "./components/layout/Navbar";
+import Section from "./components/layout/Section";
+import dummyText from "./DummyText";
+import Search from "./components/Search";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+       <Navbar />
+       
+        <Section
+          title="INTRO"
+          subtitle={"Intro Intro Intro IntroIntro"}
+          dark={true}
+          id="section1"
+        />
+        <Search />
+        <Section
+          title="Section 2"
+          subtitle={dummyText}
+          dark={false}
+          id="section2"
+        />
+        <Section
+          title="Section 3"
+          subtitle={dummyText}
+          dark={true}
+          id="section3"
+        />
+        <Section
+          title="Section 4"
+          subtitle={dummyText}
+          dark={false}
+          id="section4"
+        />
+        <Header id="ez" />
+        <Section
+          title="Section 5"
+          subtitle={dummyText}
+          dark={true}
+          id="section5"
+        />
+       
       </div>
     );
   }
