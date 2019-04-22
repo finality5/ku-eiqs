@@ -1,27 +1,34 @@
 import React from 'react'
-import { Image, List } from 'semantic-ui-react'
+import { Image, List , Icon , Dropdown , Button , Select} from 'semantic-ui-react'
+
+const options = [
+    { key: '1', text: '1', value: '1' },
+    { key: '2', text: '2', value: '2' },
+    { key: '3', text: '3', value: '3' },
+  ]
 
 const ListExampleSelection = () => (
-  <List selection verticalAlign='middle'>
+
+<List divided selection verticalAlign='middle' size="massive">
     <List.Item>
-      <Image avatar src='/images/avatar/small/helen.jpg' />
-      <List.Content>
-        <List.Header>Helen</List.Header>
-      </List.Content>
+        <List.Content floated="right">
+            <Button basic color='blue' content='Blue'>
+                <Dropdown inline options={options} placeholder="Select Section"/> 
+            </Button>
+            <Button icon='remove' color='red' />
+        </List.Content>
+        <List.Content floated="left">
+            <Icon color='blue' name='book' size="small" />
+        </List.Content>
+        <List.Content>
+            <List.Header><p>Subject1</p></List.Header>
+        </List.Content>
     </List.Item>
-    <List.Item>
-      <Image avatar src='/images/avatar/small/christian.jpg' />
-      <List.Content>
-        <List.Header>Christian</List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Image avatar src='/images/avatar/small/daniel.jpg' />
-      <List.Content>
-        <List.Header>Daniel</List.Header>
-      </List.Content>
-    </List.Item>
-  </List>
+</List>
+  
+  
+
+
 )
 
 export default ListExampleSelection

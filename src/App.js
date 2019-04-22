@@ -5,6 +5,7 @@ import Navbar from "./components/layout/Navbar";
 import Section from "./components/layout/Section";
 import dummyText from "./DummyText";
 import Search from "./components/Search";
+import List from "./components/List";
 //import Login from "./components/Login";
 import {SubjectsObj} from './components/subjectsObj';
 
@@ -46,31 +47,8 @@ class App extends Component {
           onChange={this.handleChange}
         />
         
-        <Section
-          title="Section 2"
-          subtitle={dummyText}
-          dark={false}
-          id="section2"
-        />
-        <Section
-          title="Section 3"
-          subtitle={dummyText}
-          dark={true}
-          id="section3"
-        />
-        <Section
-          title="Section 4"
-          subtitle={dummyText}
-          dark={false}
-          id="section4"
-        />
-        <Header id="ez" />
-        <Section
-          title="Section 5"
-          subtitle={dummyText}
-          dark={true}
-          id="section5"
-        />
+       <List />
+       <List />
        
       </div>
     );
