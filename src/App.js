@@ -26,7 +26,17 @@ class App extends Component {
     this.setState({Dropdownvalue:value})
   }
   
-
+  AddSec = (secs,keys) =>{
+    
+    for(var i=0 ; i<this.state.data.length ; i++){
+      if(this.state.data[i].key===keys){
+          this.state.data[i].sec=secs
+          console.log(this.state.data[i])
+      }
+    }
+    console.log('#')
+    console.log(this.state.data)
+  }
   
   
   render() {
@@ -48,7 +58,7 @@ class App extends Component {
           onChange={this.handleChange}
         />
        <List divided selection verticalAlign='middle' size="massive"> 
-       <ListImport res={this.state.data} />
+       <ListImport res={this.state.data} AddSec={this.AddSec} />
        </List>
        
       
