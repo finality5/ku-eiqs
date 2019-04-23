@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/layout/Header';
+
 import Navbar from "./components/layout/Navbar";
 import Section from "./components/layout/Section";
-import dummyText from "./DummyText";
+
 import Search from "./components/Search";
-import List from "./components/List";
+import ListImport from "./components/List";
 //import Login from "./components/Login";
 import {SubjectsObj} from './components/subjectsObj';
+import { List } from 'semantic-ui-react'
 
 class App extends Component {
   
@@ -46,9 +47,11 @@ class App extends Component {
           value={this.state.Dropdownvalue}
           onChange={this.handleChange}
         />
-        
-       <List />
-       <List />
+       <List divided selection verticalAlign='middle' size="massive"> 
+       <ListImport res={this.state.data} />
+       </List>
+       
+      
        
       </div>
     );

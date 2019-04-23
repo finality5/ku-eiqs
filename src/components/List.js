@@ -1,34 +1,37 @@
-import React from 'react'
-import { Image, List , Icon , Dropdown , Button , Select} from 'semantic-ui-react'
-
-const options = [
-    { key: '1', text: '1', value: '1' },
-    { key: '2', text: '2', value: '2' },
-    { key: '3', text: '3', value: '3' },
-  ]
-
-const ListExampleSelection = () => (
-
-<List divided selection verticalAlign='middle' size="massive">
-    <List.Item>
-        <List.Content floated="right">
-            <Button basic color='blue' content='Blue'>
-                <Dropdown inline options={options} placeholder="Select Section"/> 
-            </Button>
-            <Button icon='remove' color='red' />
-        </List.Content>
-        <List.Content floated="left">
-            <Icon color='blue' name='book' size="small" />
-        </List.Content>
-        <List.Content>
-            <List.Header><p>Subject1</p></List.Header>
-        </List.Content>
-    </List.Item>
-</List>
-  
-  
+import React, { Component } from 'react'
+import { List , Icon ,Button , Input } from 'semantic-ui-react'
 
 
-)
 
-export default ListExampleSelection
+
+
+export class ListExport extends Component {
+  render() {
+      console.log(this.props.res)
+    return this.props.res.map((subj) => (
+        
+        <List.Item key={subj.key}>
+            <List.Content floated="right">
+            <div>
+                
+                <Input type="number" min="0" max="999" placeholder='Section' size="small" style={{fontSize:"14px" , width:"90px" , marginRight:"5px" , height:"30.84px" }} />
+                
+                <Button icon='remove' color='red' size="tiny" />
+            </div>
+            </List.Content> 
+            <List.Content floated="left">
+                <Icon color='blue' name='book' size="small" />
+            </List.Content>
+            <List.Content>
+                <List.Header style={{fontFamily:'Roboto'}}>{subj.key} {subj.name}</List.Header>
+            </List.Content>
+        </List.Item>)
+        
+    
+    )
+  }
+}
+
+export default ListExport
+
+
