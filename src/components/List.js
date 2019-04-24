@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Icon,Input } from "semantic-ui-react";
+import { List, Icon,Input,Grid } from "semantic-ui-react";
 
 
 
@@ -19,7 +19,7 @@ export class ListExport extends Component {
     console.log(this.props.res);
     return this.props.res.map(subj => (
       <List.Item key={subj.key}>
-        
+        <Grid.Column width={4}>
           <div style={{float:"right"}}>
             <Input
               name={subj.key}
@@ -41,17 +41,22 @@ export class ListExport extends Component {
 
             <Icon name="remove circle" color="red" size="small" onClick={()=>this.props.Del(subj.key)} />
           </div>
+          </Grid.Column>
         
         
           
         
-       
-          <div style={{ color:"black" ,float:"left" }}>
-          <span>
+          <Grid.Column width={1} style={{float:"left" , width:30}}>
           <Icon  name="book"  />
-          &nbsp;&nbsp;{subj.key}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{subj.name}
-            </span>
-         </div>
+          </Grid.Column>
+          <Grid.Column width={3} style={{ color:"black" ,float:"left" , width:80}}>
+          {subj.key}
+          </Grid.Column>
+          <Grid.Column container="true" width={8} style={{ color:"black" ,float:"left" , width:240}}>
+          {subj.name}
+          </Grid.Column>
+          
+        
       </List.Item>
     ));
   }

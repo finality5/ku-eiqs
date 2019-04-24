@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Input, Form, Button, Label, Icon } from "semantic-ui-react";
+import { Input, Form, Button, Label } from "semantic-ui-react";
 
 class LoginPage extends Component {
   constructor() {
@@ -90,7 +90,7 @@ class LoginPage extends Component {
           <Form.Field>
           <Button type='submit' animated>
             <Button.Content visible>Login</Button.Content>
-            <Button.Content hidden><Icon name='globe' /></Button.Content>
+            <Button.Content hidden>Go!</Button.Content>
           </Button>
           </Form.Field>
         </Form>

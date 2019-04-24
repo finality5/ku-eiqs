@@ -15,7 +15,7 @@ import {
   Grid,
   Header,
   Icon,
-  GridRow
+  Button
 } from "semantic-ui-react";
 
 class App extends Component {
@@ -53,6 +53,15 @@ class App extends Component {
     this.setState({ dropdownValue: dropTemp });
   };
 
+  checkButton = () => {
+    return {
+      float:"center",
+      padding:"10px",
+      marginTop:"20px",
+      display:this.state.data.length!==0?'block':'none'
+    }
+  }
+
   render() {
     console.log(this.state);
 
@@ -87,7 +96,7 @@ class App extends Component {
                   <Icon name="book" />
                   Subjects
                 </Header>
-                <Grid.Row container className="App">
+                <Grid.Row container="true" className="App">
                   <List
                     divided
                     selection
@@ -100,6 +109,14 @@ class App extends Component {
                       Del={this.Del}
                     />
                   </List>
+                </Grid.Row>
+                <Grid.Row style={this.checkButton()} >
+                  <Button type="submit" animated>
+                    <Button.Content visible>Submit</Button.Content>
+                    <Button.Content hidden>
+                      Go!
+                    </Button.Content>
+                  </Button>
                 </Grid.Row>
               </Grid.Column>
 
