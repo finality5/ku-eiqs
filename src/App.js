@@ -40,7 +40,7 @@ class App extends Component {
       }
     }
     this.setState({ data: temp });
-    console.log(this.state.data);
+    //console.log(this.state.data);
   };
 
   Del = keyDel => {
@@ -62,8 +62,12 @@ class App extends Component {
     }
   }
 
+  buttonSubmit = () =>{
+    console.log(this.state.data)
+  }
+
   render() {
-    console.log(this.state);
+    //console.log(this.state);
 
     return (
       <div>
@@ -76,7 +80,7 @@ class App extends Component {
           id="section1"
         />
 
-        <Segment placeholder>
+        <Segment placeholder id="section2">
           <Grid columns={2} stackable relaxed="very">
             <Divider vertical>Or</Divider>
 
@@ -111,7 +115,7 @@ class App extends Component {
                   </List>
                 </Grid.Row>
                 <Grid.Row style={this.checkButton()} >
-                  <Button type="submit" animated>
+                  <Button type="submit" animated onClick={this.buttonSubmit}>
                     <Button.Content visible>Submit</Button.Content>
                     <Button.Content hidden>
                       Go!

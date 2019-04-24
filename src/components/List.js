@@ -52,7 +52,7 @@ export class ListExport extends Component {
           <Grid.Column width={3} style={{ color:"black" ,float:"left" , width:80}}>
           {subj.key}
           </Grid.Column>
-          <Grid.Column container="true" width={8} style={{ color:"black" ,float:"left" , width:240}}>
+          <Grid.Column container="true" width={8} style={{ color:"black" ,float:"left"}}>
           {subj.name}
           </Grid.Column>
           
