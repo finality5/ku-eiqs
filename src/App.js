@@ -27,15 +27,26 @@ class App extends Component {
   }
   
   AddSec = (secs,keys) =>{
-    
-    for(var i=0 ; i<this.state.data.length ; i++){
-      if(this.state.data[i].key===keys){
-          this.state.data[i].sec=secs
-          console.log(this.state.data[i])
+    let temp = [...this.state.data]
+    for(var i=0 ; i<temp.length ; i++){
+      if(temp[i].key===keys){
+          temp[i].sec=secs
       }
     }
-    console.log('#')
-    console.log(this.state.data)
+    this.setState({data:temp})
+    
+  }
+
+  Del = (keyDel) => {
+    let dataTemp = [...this.state.data.filter(Data => Data.key !== keyDel)]
+    let dropTemp = [...this.state.Dropdownvalue.filter(Element => Element !== keyDel)]
+
+    this.setState({data:dataTemp})
+    this.setState({Dropdownvalue:dropTemp})
+
+    
+    
+
   }
   
   
@@ -58,7 +69,7 @@ class App extends Component {
           onChange={this.handleChange}
         />
        <List divided selection verticalAlign='middle' size="massive"> 
-       <ListImport res={this.state.data} AddSec={this.AddSec} />
+       <ListImport res={this.state.data} AddSec={this.AddSec} Del={this.Del} />
        </List>
        
       

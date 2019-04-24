@@ -1,12 +1,18 @@
 import React, { Component } from "react";
-import { List, Icon, Button, Input } from "semantic-ui-react";
+import { List, Icon,Input } from "semantic-ui-react";
+
+
 
 export class ListExport extends Component {
 
+
+
   onChange = (e) => {
     this.props.AddSec(e.target.value,e.target.name)
-    
+    console.log(e.target)
   }
+
+  
 
   
 
@@ -35,7 +41,7 @@ export class ListExport extends Component {
               
             />
 
-            <Button icon="remove" color="red" size="tiny" />
+            <Icon name="remove circle" color="red" size="small" onClick={()=>this.props.Del(subj.key)} />
           </div>
         </List.Content>
         <List.Content floated="left">
