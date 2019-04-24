@@ -9,7 +9,7 @@ export class ListExport extends Component {
 
   onChange = (e) => {
     this.props.AddSec(e.target.value,e.target.name)
-    console.log(e.target)
+    
   }
 
   
@@ -19,8 +19,8 @@ export class ListExport extends Component {
     console.log(this.props.res);
     return this.props.res.map(subj => (
       <List.Item key={subj.key}>
-        <List.Content floated="right">
-          <div>
+        
+          <div style={{float:"right"}}>
             <Input
               name={subj.key}
               type="number"
@@ -41,15 +41,17 @@ export class ListExport extends Component {
 
             <Icon name="remove circle" color="red" size="small" onClick={()=>this.props.Del(subj.key)} />
           </div>
-        </List.Content>
-        <List.Content floated="left">
+        
+        
+          
+        
+       
+          <div style={{ color:"black" ,float:"left" }}>
+          <span>
           <Icon  name="book"  />
-        </List.Content>
-        <List.Content>
-          <List.Header style={{ fontFamily: "Roboto" }}>
-            {subj.key} {subj.name}
-          </List.Header>
-        </List.Content>
+          &nbsp;&nbsp;{subj.key}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{subj.name}
+            </span>
+         </div>
       </List.Item>
     ));
   }

@@ -15,13 +15,13 @@ import {
   Grid,
   Header,
   Icon,
-  Button
+  GridRow
 } from "semantic-ui-react";
 
 class App extends Component {
   state = {
     data: [],
-    Dropdownvalue: []
+    dropdownValue: []
   };
   handleChange = (e, { value }) => {
     let tmp = [];
@@ -29,7 +29,7 @@ class App extends Component {
       tmp.push(SubjectsObj[value[i]]);
     }
     this.setState({ data: tmp });
-    this.setState({ Dropdownvalue: value });
+    this.setState({ dropdownValue: value });
   };
 
   AddSec = (secs, keys) => {
@@ -40,16 +40,17 @@ class App extends Component {
       }
     }
     this.setState({ data: temp });
+    console.log(this.state.data);
   };
 
   Del = keyDel => {
     let dataTemp = [...this.state.data.filter(Data => Data.key !== keyDel)];
     let dropTemp = [
-      ...this.state.Dropdownvalue.filter(Element => Element !== keyDel)
+      ...this.state.dropdownValue.filter(Element => Element !== keyDel)
     ];
 
     this.setState({ data: dataTemp });
-    this.setState({ Dropdownvalue: dropTemp });
+    this.setState({ dropdownValue: dropTemp });
   };
 
   render() {
@@ -66,9 +67,8 @@ class App extends Component {
           id="section1"
         />
 
-        
-        <Segment placeholder >
-          <Grid columns={2} stackable relaxed="very" >
+        <Segment placeholder>
+          <Grid columns={2} stackable relaxed="very">
             <Divider vertical>Or</Divider>
 
             <Grid.Row verticalAlign="middle">
@@ -79,16 +79,28 @@ class App extends Component {
                 </Header>
 
                 <Search
-                  value={this.state.Dropdownvalue}
+                  value={this.state.dropdownValue}
                   onChange={this.handleChange}
                 />
-                <List divided selection verticalAlign="middle">
-                  <ListImport
-                    res={this.state.data}
-                    AddSec={this.AddSec}
-                    Del={this.Del}
-                  />
-                </List>
+
+                <Header icon textAlign="center">
+                  <Icon name="book" />
+                  Subjects
+                </Header>
+                <Grid.Row container className="App">
+                  <List
+                    divided
+                    selection
+                    verticalAlign="middle"
+                    style={{ marginTop: "50px" }}
+                  >
+                    <ListImport
+                      res={this.state.data}
+                      AddSec={this.AddSec}
+                      Del={this.Del}
+                    />
+                  </List>
+                </Grid.Row>
               </Grid.Column>
 
               <Grid.Column>

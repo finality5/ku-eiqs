@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Icon, Input, Form, Button, Label } from "semantic-ui-react";
+import { Input, Form, Button, Label, Icon } from "semantic-ui-react";
 
 class LoginPage extends Component {
   constructor() {
@@ -23,10 +23,10 @@ class LoginPage extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    axios.post("http://158.108.231.48:5000/login", this.state).then(res => {
-      console.log(res.data.table);
+    axios.post("https://ku-eiqs-backend.herokuapp.com/", this.state).then(res => {
+      //console.log(res.data.table);
     });
-    console.log(this.state);
+    //console.log(this.state);
     if (!this.state.username) {
       return this.setState({ error: "Username is required" });
     }
@@ -88,7 +88,10 @@ class LoginPage extends Component {
             </Input>
           </Form.Field>
           <Form.Field>
-          <Button type='submit'>Log In</Button>
+          <Button type='submit' animated>
+            <Button.Content visible>Login</Button.Content>
+            <Button.Content hidden><Icon name='globe' /></Button.Content>
+          </Button>
           </Form.Field>
         </Form>
       </div>
