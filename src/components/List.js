@@ -33,8 +33,7 @@ export class ListExport extends Component {
                 width: "90px",
                 marginRight: "5px",
                 height: "30.84px",
-                border:"2px solid #33ccff",
-                borderRadius:"6px"
+                
               }}
               onChange={this.onChange}
               
@@ -44,7 +43,7 @@ export class ListExport extends Component {
           </div>
         </List.Content>
         <List.Content floated="left">
-          <Icon color="blue" name="book" size="small" />
+          <Icon  name="book"  />
         </List.Content>
         <List.Content>
           <List.Header style={{ fontFamily: "Roboto" }}>
