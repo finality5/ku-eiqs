@@ -23,8 +23,9 @@ class LoginPage extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    axios.post("https://ku-eiqs-backend.herokuapp.com/", this.state).then(res => {
-      //console.log(res.data.table);
+    axios.post("http://158.108.229.179:5000/login", this.state).then(res => {
+    console.log(this.state)  
+    console.log(res);
     });
     //console.log(this.state);
     if (!this.state.username) {
@@ -65,6 +66,7 @@ class LoginPage extends Component {
           )}
           <Form.Field required>
             <Input
+              placeholder="Account"
               labelPosition="left"
               type="text"
               data-test="username"
@@ -77,6 +79,7 @@ class LoginPage extends Component {
           </Form.Field>
           <Form.Field required>
             <Input
+              placeholder="Password"
               labelPosition="left"
               type="password"
               data-test="password"

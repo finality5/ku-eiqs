@@ -39,7 +39,7 @@ export class ListExport extends Component {
               
             />
 
-            <Icon name="remove circle" color="red" size="small" onClick={()=>this.props.Del(subj.key)} />
+            <Icon name="remove circle" color="red" size="large" onClick={()=>this.props.Del(subj.key)} />
           </div>
           </Grid.Column>
         

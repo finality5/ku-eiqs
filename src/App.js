@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-
+//import Schedule from './components/Schedule';
 import Navbar from "./components/layout/Navbar";
 import Section from "./components/layout/Section";
-
+import axios from "axios";
 import Search from "./components/Search";
 import ListImport from "./components/List";
 import Login from "./components/Login";
@@ -63,7 +63,10 @@ class App extends Component {
   }
 
   buttonSubmit = () =>{
-    console.log(this.state.data)
+    axios.post("http://158.108.229.179:5000/examtbl", this.state.data).then(res => {
+      console.log(res);
+    });
+    
   }
 
   render() {
@@ -131,6 +134,9 @@ class App extends Component {
                 </Header>
                 <Login />
               </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+             
             </Grid.Row>
           </Grid>
         </Segment>
