@@ -77,8 +77,8 @@ class App extends Component {
         <Navbar />
 
         <Section
-          title="INTRO"
-          subtitle={"Intro Intro Intro IntroIntro"}
+          title="KU EiQS"
+          subtitle={"Kasetsart University Examination Information Querying System"}
           dark={true}
           id="section1"
         />
