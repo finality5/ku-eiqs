@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../logo.svg";
+import logo from "../../book.png";
 import { Link, animateScroll as scroll } from "react-scroll";
 import './Nav.css'
 export default class Navbar extends Component {
@@ -16,7 +16,11 @@ export default class Navbar extends Component {
             className="nav-logo"
             alt="Logo"
             onClick={this.scrollToTop}
+            style={{marginLeft:"50px"}}
           />
+          <div style={{marginRight:"100px"}} >
+          <h1>KU EiQS</h1>
+          </div>
           <ul className="nav-items">
             <li className="nav-item">
               <Link
