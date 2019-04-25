@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "02ff1ed86fd42fc823b0",
+    "revision": "362daaf052506ac69abf",
     "url": "/databaseFrontend/static/css/main.2188dc64.chunk.css"
   },
   {
-    "revision": "02ff1ed86fd42fc823b0",
-    "url": "/databaseFrontend/static/js/main.c8bda9bc.chunk.js"
+    "revision": "362daaf052506ac69abf",
+    "url": "/databaseFrontend/static/js/main.aaf15905.chunk.js"
   },
   {
     "revision": "2557a196e978ae8188f2",
@@ -20,8 +20,12 @@ self.__precacheManifest = [
     "url": "/databaseFrontend/static/js/2.07f1eb0b.chunk.js"
   },
   {
-    "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
-    "url": "/databaseFrontend/static/media/logo.5d5d9eef.svg"
+    "revision": "1c2ac2dd4a53fa22939f28310a6627e0",
+    "url": "/databaseFrontend/static/media/book.1c2ac2dd.png"
+  },
+  {
+    "revision": "9c74e172f87984c48ddf5c8108cabe67",
+    "url": "/databaseFrontend/static/media/flags.9c74e172.png"
   },
   {
     "revision": "cd6c777f1945164224dee082abaea03a",
@@ -56,20 +60,16 @@ self.__precacheManifest = [
     "url": "/databaseFrontend/static/media/brand-icons.a046592b.woff"
   },
   {
-    "revision": "9c74e172f87984c48ddf5c8108cabe67",
-    "url": "/databaseFrontend/static/media/flags.9c74e172.png"
-  },
-  {
     "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
     "url": "/databaseFrontend/static/media/icons.8e3c7f55.eot"
   },
   {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/databaseFrontend/static/media/brand-icons.13db00b7.eot"
-  },
-  {
     "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
     "url": "/databaseFrontend/static/media/icons.b87b9ba5.ttf"
+  },
+  {
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/databaseFrontend/static/media/brand-icons.13db00b7.eot"
   },
   {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
@@ -88,7 +88,7 @@ self.__precacheManifest = [
     "url": "/databaseFrontend/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "076c4538ecd2c768b46d2910a113b915",
+    "revision": "0d3109859dc9870d8dd0b09c4b68a383",
     "url": "/databaseFrontend/index.html"
   }
 ];
