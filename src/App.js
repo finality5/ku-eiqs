@@ -63,7 +63,7 @@ class App extends Component {
   }
 
   buttonSubmit = () =>{
-    axios.post("http://158.108.229.179:5000/examtbl", this.state.data).then(res => {
+    axios.post("https://ku-eiqs-backend.herokuapp.com/examtbl", this.state.data).then(res => {
       console.log(res);
     });
     

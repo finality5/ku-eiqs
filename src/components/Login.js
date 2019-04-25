@@ -23,7 +23,7 @@ class LoginPage extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    axios.post("http://158.108.229.179:5000/login", this.state).then(res => {
+    axios.post("https://ku-eiqs-backend.herokuapp.com/login", this.state).then(res => {
     console.log(this.state)  
     console.log(res);
     });
