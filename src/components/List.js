@@ -16,13 +16,14 @@ export class ListExport extends Component {
   
 
   render() {
-    console.log(this.props.res);
+    
     return this.props.res.map(subj => (
       <List.Item key={subj.key}>
         <Grid.Column width={4}>
           <div style={{float:"right"}}>
             <Input
               name={subj.key}
+             
               type="number"
               min="1"
               max="999"

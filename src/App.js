@@ -15,31 +15,45 @@ import {
   Grid,
   Header,
   Icon,
-  Button
+  Button,
+  Message
 } from "semantic-ui-react";
 
 class App extends Component {
   state = {
     data: [],
-    dropdownValue: []
+    dropdownValue: [],
+    error: []
   };
   handleChange = (e, { value }) => {
     let tmp = [];
+    let error = [];
     for (var i = 0; i < value.length; i++) {
       tmp.push(SubjectsObj[value[i]]);
+      error.push({ key: SubjectsObj[value[i]].key, fillSec: false , press:false });
     }
     this.setState({ data: tmp });
     this.setState({ dropdownValue: value });
+    this.setState({ error: error });
   };
 
   AddSec = (secs, keys) => {
     let temp = [...this.state.data];
+    let error = [...this.state.error];
     for (var i = 0; i < temp.length; i++) {
       if (temp[i].key === keys) {
         temp[i].sec = secs;
+        if (temp[i].sec <= 0) {
+          error[i].fillSec = true;
+        }
+        else{
+          error[i].fillSec = false;
+        }
       }
     }
     this.setState({ data: temp });
+    this.setState({ error: error });
+
     //console.log(this.state.data);
   };
 
@@ -48,29 +62,53 @@ class App extends Component {
     let dropTemp = [
       ...this.state.dropdownValue.filter(Element => Element !== keyDel)
     ];
+    let errorTemp = [...this.state.error.filter(Er => Er.key !== keyDel)]
 
     this.setState({ data: dataTemp });
     this.setState({ dropdownValue: dropTemp });
+    this.setState({ error: errorTemp });
   };
 
   checkButton = () => {
     return {
-      float:"center",
-      padding:"10px",
-      marginTop:"20px",
-      display:this.state.data.length!==0?'block':'none'
+      float: "center",
+      padding: "10px",
+      marginTop: "20px",
+      display: this.state.data.length !== 0 ? "block" : "none"
+    };
+  };
+
+  buttonSubmit = () => {
+    let check=true;
+    
+    for(let i=0 ; i<this.state.error.length ; i++){
+      if(this.state.error[i].fillSec===true){
+        check=false;
+      }
+    }
+    if(check){
+    axios
+      .post("https://ku-eiqs-backend.herokuapp.com/examtbl", this.state.data)
+      .then(res => {
+        console.log(res);
+      });}
+    return check;
+  };
+
+  warningStyle= () =>{
+    let check=true;
+    
+    for(let i=0 ; i<this.state.error.length ; i++){
+      if(this.state.error[i].fillSec===true){
+        check=false;
+      }
+    }
+    return {
+      display: !check?"block":"none"
     }
   }
-
-  buttonSubmit = () =>{
-    axios.post("https://ku-eiqs-backend.herokuapp.com/examtbl", this.state.data).then(res => {
-      console.log(res);
-    });
-    
-  }
-
   render() {
-    //console.log(this.state);
+    console.log(this.state);
 
     return (
       <div>
@@ -78,7 +116,9 @@ class App extends Component {
 
         <Section
           title="KU EiQS"
-          subtitle={"Kasetsart University Examination Information Querying System"}
+          subtitle={
+            "Kasetsart University Examination Information Querying System"
+          }
           dark={true}
           id="section1"
         />
@@ -114,15 +154,19 @@ class App extends Component {
                       res={this.state.data}
                       AddSec={this.AddSec}
                       Del={this.Del}
+                      secEmpty={this.buttonSubmit}
                     />
                   </List>
                 </Grid.Row>
-                <Grid.Row style={this.checkButton()} >
+                <Grid.Row style={this.checkButton()}>
+                <Message style={this.warningStyle()}
+      error
+      header='Action Forbidden'
+      content='You can only sign up for an account once with a given e-mail address.'
+    />
                   <Button type="submit" animated onClick={this.buttonSubmit}>
                     <Button.Content visible>Submit</Button.Content>
-                    <Button.Content hidden>
-                      Go!
-                    </Button.Content>
+                    <Button.Content hidden>Go!</Button.Content>
                   </Button>
                 </Grid.Row>
               </Grid.Column>
@@ -135,9 +179,7 @@ class App extends Component {
                 <Login />
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row>
-             
-            </Grid.Row>
+            <Grid.Row />
           </Grid>
         </Segment>
       </div>
