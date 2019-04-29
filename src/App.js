@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
-//import Schedule from './components/Schedule';
+
+import Calendar from "./components/Calendar"
 import Navbar from "./components/layout/Navbar";
 import Section from "./components/layout/Section";
 import axios from "axios";
 import Search from "./components/Search";
 import ListImport from "./components/List";
 import Login from "./components/Login";
+//import GenOutput from "./components/genOutput";
 import { SubjectsObj } from "./components/subjectsObj";
 import {
   List,
@@ -171,6 +173,16 @@ class App extends Component {
             <Grid.Row />
           </Grid>
         </Segment>
+        <Grid columns={2} stackable relaxed="very">
+        <Grid.Column width={8}>
+          KUY
+        </Grid.Column>
+        <Grid.Column width={8}>
+        <main>
+          <Calendar />
+        </main>
+        </Grid.Column>
+        </Grid>
       </div>
     );
   }
