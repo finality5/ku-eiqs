@@ -23,36 +23,32 @@ class App extends Component {
   state = {
     data: [],
     dropdownValue: [],
-    error: []
+    
+    warningStyle:{display:'none'}
   };
   handleChange = (e, { value }) => {
     let tmp = [];
-    let error = [];
+    
     for (var i = 0; i < value.length; i++) {
       tmp.push(SubjectsObj[value[i]]);
-      error.push({ key: SubjectsObj[value[i]].key, fillSec: false , press:false });
+      
     }
     this.setState({ data: tmp });
     this.setState({ dropdownValue: value });
-    this.setState({ error: error });
+    
   };
 
   AddSec = (secs, keys) => {
     let temp = [...this.state.data];
-    let error = [...this.state.error];
+    
     for (var i = 0; i < temp.length; i++) {
       if (temp[i].key === keys) {
         temp[i].sec = secs;
-        if (temp[i].sec <= 0) {
-          error[i].fillSec = true;
-        }
-        else{
-          error[i].fillSec = false;
-        }
+        
       }
     }
     this.setState({ data: temp });
-    this.setState({ error: error });
+    
 
     //console.log(this.state.data);
   };
@@ -62,11 +58,11 @@ class App extends Component {
     let dropTemp = [
       ...this.state.dropdownValue.filter(Element => Element !== keyDel)
     ];
-    let errorTemp = [...this.state.error.filter(Er => Er.key !== keyDel)]
+    
 
     this.setState({ data: dataTemp });
     this.setState({ dropdownValue: dropTemp });
-    this.setState({ error: errorTemp });
+   
   };
 
   checkButton = () => {
@@ -81,32 +77,25 @@ class App extends Component {
   buttonSubmit = () => {
     let check=true;
     
-    for(let i=0 ; i<this.state.error.length ; i++){
-      if(this.state.error[i].fillSec===true){
+    for(let i=0 ; i<this.state.data.length ; i++){
+      if(this.state.data[i].sec<=0){
         check=false;
       }
     }
     if(check){
+    this.setState({warningStyle:{display:'none'}});
     axios
       .post("https://ku-eiqs-backend.herokuapp.com/examtbl", this.state.data)
       .then(res => {
         console.log(res);
       });}
+      else{
+        this.setState({warningStyle:{display:'block'}})
+      }
     return check;
   };
 
-  warningStyle= () =>{
-    let check=true;
-    
-    for(let i=0 ; i<this.state.error.length ; i++){
-      if(this.state.error[i].fillSec===true){
-        check=false;
-      }
-    }
-    return {
-      display: !check?"block":"none"
-    }
-  }
+ 
   render() {
     console.log(this.state);
 
@@ -159,10 +148,10 @@ class App extends Component {
                   </List>
                 </Grid.Row>
                 <Grid.Row style={this.checkButton()}>
-                <Message style={this.warningStyle()}
+                <Message style={this.state.warningStyle}
       error
-      header='Action Forbidden'
-      content='You can only sign up for an account once with a given e-mail address.'
+      header='Invalid Section'
+      content='Section number must greater than 0 and not empty'
     />
                   <Button type="submit" animated onClick={this.buttonSubmit}>
                     <Button.Content visible>Submit</Button.Content>
