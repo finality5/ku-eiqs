@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "c42474033240eb6f7602",
+    "revision": "96f99e3a54a89f7ca299",
     "url": "/databaseFrontend/static/css/main.bd445b5b.chunk.css"
   },
   {
-    "revision": "c42474033240eb6f7602",
-    "url": "/databaseFrontend/static/js/main.26939e1f.chunk.js"
+    "revision": "96f99e3a54a89f7ca299",
+    "url": "/databaseFrontend/static/js/main.766191b5.chunk.js"
   },
   {
     "revision": "2557a196e978ae8188f2",
     "url": "/databaseFrontend/static/js/runtime~main.3b0001b5.js"
   },
   {
-    "revision": "ead7fc92198fc3e547b7",
+    "revision": "17215650951bcabedb94",
     "url": "/databaseFrontend/static/css/2.ca360eb4.chunk.css"
   },
   {
-    "revision": "ead7fc92198fc3e547b7",
-    "url": "/databaseFrontend/static/js/2.27ac3460.chunk.js"
+    "revision": "17215650951bcabedb94",
+    "url": "/databaseFrontend/static/js/2.876a35dc.chunk.js"
   },
   {
     "revision": "1c2ac2dd4a53fa22939f28310a6627e0",
@@ -88,7 +88,7 @@ self.__precacheManifest = [
     "url": "/databaseFrontend/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "b8d10b2603ae1dbc2e848bf0f85e845c",
+    "revision": "e3eda47318addcfb8cd9c66f0b9298ce",
     "url": "/databaseFrontend/index.html"
   }
 ];
