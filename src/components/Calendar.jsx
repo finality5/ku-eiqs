@@ -1,6 +1,7 @@
 import React from "react";
 import dateFns from "date-fns";
 import {Icon} from "semantic-ui-react";
+import "../App.css"
 class Calendar extends React.Component {
   state = {
     currentMonth: new Date(),

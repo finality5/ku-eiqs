@@ -21,7 +21,7 @@ export default class Navbar extends Component {
           <div style={{marginRight:"100px"}} >
           <h1>KU EiQS</h1>
           </div>
-          <ul className="nav-items">
+          <ul className="nav-items App">
             <li className="nav-item">
               <Link
                 activeClass="active"

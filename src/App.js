@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
+//import "./App.css";
 
-import Calendar from "./components/Calendar"
+import Calendar from "./components/Calendar";
+import Card from "./components/Card";
 import Navbar from "./components/layout/Navbar";
 import Section from "./components/layout/Section";
 import axios from "axios";
@@ -25,32 +26,28 @@ class App extends Component {
   state = {
     data: [],
     dropdownValue: [],
-    
-    warningStyle:{display:'none'}
+
+    warningStyle: { display: "none" }
   };
   handleChange = (e, { value }) => {
     let tmp = [];
-    
+
     for (var i = 0; i < value.length; i++) {
       tmp.push(SubjectsObj[value[i]]);
-      
     }
     this.setState({ data: tmp });
     this.setState({ dropdownValue: value });
-    
   };
 
   AddSec = (secs, keys) => {
     let temp = [...this.state.data];
-    
+
     for (var i = 0; i < temp.length; i++) {
       if (temp[i].key === keys) {
         temp[i].sec = secs;
-        
       }
     }
     this.setState({ data: temp });
-    
 
     //console.log(this.state.data);
   };
@@ -60,11 +57,9 @@ class App extends Component {
     let dropTemp = [
       ...this.state.dropdownValue.filter(Element => Element !== keyDel)
     ];
-    
 
     this.setState({ data: dataTemp });
     this.setState({ dropdownValue: dropTemp });
-   
   };
 
   checkButton = () => {
@@ -77,27 +72,26 @@ class App extends Component {
   };
 
   buttonSubmit = () => {
-    let check=true;
-    
-    for(let i=0 ; i<this.state.data.length ; i++){
-      if(this.state.data[i].sec<=0){
-        check=false;
+    let check = true;
+
+    for (let i = 0; i < this.state.data.length; i++) {
+      if (this.state.data[i].sec <= 0) {
+        check = false;
       }
     }
-    if(check){
-    this.setState({warningStyle:{display:'none'}});
-    axios
-      .post("https://ku-eiqs-backend.herokuapp.com/examtbl", this.state.data)
-      .then(res => {
-        console.log(res);
-      });}
-      else{
-        this.setState({warningStyle:{display:'block'}})
-      }
+    if (check) {
+      this.setState({ warningStyle: { display: "none" } });
+      axios
+        .post("https://ku-eiqs-backend.herokuapp.com/examtbl", this.state.data)
+        .then(res => {
+          console.log(res);
+        });
+    } else {
+      this.setState({ warningStyle: { display: "block" } });
+    }
     return check;
   };
 
- 
   render() {
     console.log(this.state);
 
@@ -134,12 +128,13 @@ class App extends Component {
                   <Icon name="book" />
                   Subjects
                 </Header>
-                <Grid.Row container="true" className="App">
+                
                   <List
                     divided
                     selection
                     verticalAlign="middle"
                     style={{ marginTop: "50px" }}
+                    className="App"
                   >
                     <ListImport
                       res={this.state.data}
@@ -148,13 +143,14 @@ class App extends Component {
                       secEmpty={this.buttonSubmit}
                     />
                   </List>
-                </Grid.Row>
+                
                 <Grid.Row style={this.checkButton()}>
-                <Message style={this.state.warningStyle}
-      error
-      header='Invalid Section'
-      content='Section number must greater than 0 and not empty'
-    />
+                  <Message
+                    style={this.state.warningStyle}
+                    error
+                    header="Invalid Section"
+                    content="Section number must greater than 0 and not empty"
+                  />
                   <Button type="submit" animated onClick={this.buttonSubmit}>
                     <Button.Content visible>Submit</Button.Content>
                     <Button.Content hidden>Go!</Button.Content>
@@ -174,14 +170,16 @@ class App extends Component {
           </Grid>
         </Segment>
         <Grid columns={2} stackable relaxed="very">
-        <Grid.Column width={8}>
-          KUY
-        </Grid.Column>
-        <Grid.Column width={8}>
-        <main>
-          <Calendar />
-        </main>
-        </Grid.Column>
+          
+          <Grid.Column width={8} >
+          <Card />
+          
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <main>
+              <Calendar />
+            </main>
+          </Grid.Column>
         </Grid>
       </div>
     );
