@@ -7,11 +7,12 @@ class Calendar extends React.Component {
     currentMonth: new Date(),
     selectedDate: new Date()
   };
-
+  
   renderHeader() {
     const dateFormat = "MMMM YYYY";
-
+    
     return (
+      
       <div className="header row flex-middle">
         <div className="col col-start">
           <div className="icon" onClick={this.prevMonth}>
@@ -60,11 +61,40 @@ class Calendar extends React.Component {
     let days = [];
     let day = startDate;
     let formattedDate = "";
-
+    const cal=this.props.calDay;
+    
+    
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
+        //console.log("#",day,"#")
+        //console.log(dateFns.parse("15 May 2019"));
         formattedDate = dateFns.format(day, dateFormat);
         const cloneDay = day;
+        let a = cal.filter(item => {
+          return(dateFns.parse(item.caldate).getTime()===cloneDay.getTime())
+        })
+        console.log('#####',a)
+        
+        if(a.length>0){
+          
+          days.push(
+          <div
+            className={`col cell ${
+              !dateFns.isSameMonth(day, monthStart)
+                ? "disabled"
+                : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
+            }`}
+            key={day}
+            onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+          >
+            <span>
+              {a[0].key}
+            </span>
+            <span className="number">{formattedDate}</span>
+            <span className="bg">{formattedDate}</span>
+          </div>
+        );}
+        else{
         days.push(
           <div
             className={`col cell ${
@@ -75,12 +105,14 @@ class Calendar extends React.Component {
             key={day}
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
           >
+            
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
           </div>
-        );
+        );}
         day = dateFns.addDays(day, 1);
       }
+      
       rows.push(
         <div className="row" key={day}>
           {days}
@@ -110,6 +142,7 @@ class Calendar extends React.Component {
   };
 
   render() {
+   
     return (
       <div className="calendar">
         {this.renderHeader()}

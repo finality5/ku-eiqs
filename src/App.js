@@ -179,7 +179,7 @@ class App extends Component {
           </Grid.Column>
           <Grid.Column width={8}>
             <main>
-              <Calendar />
+              <Calendar calDay={this.state.selectedData} />
             </main>
           </Grid.Column>
         </Grid>
