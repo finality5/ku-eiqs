@@ -87,11 +87,12 @@ class Calendar extends React.Component {
             key={day}
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
           >
-            <span>
-              {a[0].key}
-            </span>
+            
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
+            <div>
+              {a[0].key}
+            </div>
           </div>
         );}
         else{
