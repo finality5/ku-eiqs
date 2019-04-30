@@ -26,7 +26,7 @@ class App extends Component {
   state = {
     data: [],
     dropdownValue: [],
-
+    selectedData:[],
     warningStyle: { display: "none" }
   };
   handleChange = (e, { value }) => {
@@ -82,10 +82,12 @@ class App extends Component {
     if (check) {
       this.setState({ warningStyle: { display: "none" } });
       axios
-        .post("https://ku-eiqs-backend.herokuapp.com/examtbl", this.state.data)
+        .post("https://ku-eiqs-backend.herokuapp.com/examtbl", {"tbl":this.state.data})
         .then(res => {
           console.log(res);
+          this.setState({selectedData:res.data.tbl})
         });
+      
     } else {
       this.setState({ warningStyle: { display: "block" } });
     }
@@ -169,10 +171,10 @@ class App extends Component {
             <Grid.Row />
           </Grid>
         </Segment>
-        <Grid columns={2} stackable relaxed="very">
+        <Grid columns={2} stackable relaxed="very" className="App" id="section3">
           
-          <Grid.Column width={8} >
-          <Card />
+          <Grid.Column width={8}>
+          <Card selectedData={this.state.selectedData}/>
           
           </Grid.Column>
           <Grid.Column width={8}>

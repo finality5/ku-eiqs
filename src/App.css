@@ -16,7 +16,9 @@
 
 /* GENERAL */
 
-
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
