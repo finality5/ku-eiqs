@@ -89,10 +89,11 @@ class Calendar extends React.Component {
           >
             
             <span className="number">{formattedDate}</span>
-            <span className="bg">{formattedDate}</span>
-            <div>
-              {a[0].key}
-            </div>
+            <span className="bg">{formattedDate} </span>
+            
+            <span>{"\n"}&nbsp;{a[0].key}</span>
+              
+            
           </div>
         );}
         else{
