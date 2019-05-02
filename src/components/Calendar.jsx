@@ -7,6 +7,13 @@ class Calendar extends React.Component {
     currentMonth: new Date(),
     selectedDate: new Date()
   };
+  addID = (a) =>{
+    return a.map(Data => (
+      <div style={{backgroundImage:"linear-gradient(90deg, #e8e8e8 100%, #a6a6a6 0%)" , border:"1px solid white",borderRadius:"2px" , fontWeight:700 ,fontSize:"90%",
+      lineHeight: 1.5 , color:"#404040"}}>{Data.key}</div>
+
+    ))
+  }
   
   renderHeader() {
     const dateFormat = "MMMM YYYY";
@@ -90,9 +97,9 @@ class Calendar extends React.Component {
             
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate} </span>
-            
-            <span>{"\n"}&nbsp;{a[0].key}</span>
-              
+            <div style={{marginTop:"1.5em"}}>
+            {this.addID(a)}
+            </div> 
             
           </div>
         );}
