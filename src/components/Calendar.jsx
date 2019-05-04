@@ -80,7 +80,7 @@ class Calendar extends React.Component {
         let a = cal.filter(item => {
           return(dateFns.parse(item.caldate).getTime()===cloneDay.getTime())
         })
-        console.log('#####',a)
+       
         
         if(a.length>0){
           

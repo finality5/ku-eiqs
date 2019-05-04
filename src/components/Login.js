@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Input, Form, Button, Label ,Message} from "semantic-ui-react";
+import { Input, Form, Button, Label, Message } from "semantic-ui-react";
 
 class LoginPage extends Component {
   constructor() {
@@ -8,7 +8,8 @@ class LoginPage extends Component {
     this.state = {
       username: "",
       password: "",
-      error: ""
+      error: "",
+      loginData: {}
     };
 
     this.handlePassChange = this.handlePassChange.bind(this);
@@ -16,6 +17,7 @@ class LoginPage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.dismissError = this.dismissError.bind(this);
   }
+  
 
   dismissError() {
     this.setState({ error: "" });
@@ -23,11 +25,19 @@ class LoginPage extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    axios.post("https://ku-eiqs-backend.herokuapp.com/login", this.state).then(res => {
-    console.log(this.state)  
-    console.log(res);
-    });
+    axios
+      .post("https://ku-eiqs-backend.herokuapp.com/login", this.state)
+      .then(res => {
+        if (!res.data.authentication) {
+          return this.setState({ error: "Username or password is incorrect" });
+        }
+        this.setState({loginData:res.data})
+        this.props.loginAdd(this.state.loginData)
+        console.log(res);
+        console.log(this.state);
+      });
     //console.log(this.state);
+
     if (!this.state.username) {
       return this.setState({ error: "Username is required" });
     }
@@ -52,20 +62,15 @@ class LoginPage extends Component {
   }
 
   render() {
-    
-
     return (
       <div className="Login">
         <Form error onSubmit={this.handleSubmit}>
           {this.state.error && (
-            
-              <Message
-                    onClick={this.dismissError}
-                    error
-                    header={this.state.error}
-                    
-                  />
-           
+            <Message
+              onClick={this.dismissError}
+              error
+              header={this.state.error}
+            />
           )}
           <Form.Field required>
             <Input
@@ -94,10 +99,10 @@ class LoginPage extends Component {
             </Input>
           </Form.Field>
           <Form.Field>
-          <Button type='submit' animated>
-            <Button.Content visible>Login</Button.Content>
-            <Button.Content hidden>Go!</Button.Content>
-          </Button>
+            <Button type="submit" animated>
+              <Button.Content visible>Login</Button.Content>
+              <Button.Content hidden>Go!</Button.Content>
+            </Button>
           </Form.Field>
         </Form>
       </div>

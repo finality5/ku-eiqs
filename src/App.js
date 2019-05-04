@@ -9,7 +9,6 @@ import axios from "axios";
 import Search from "./components/Search";
 import ListImport from "./components/List";
 import Login from "./components/Login";
-//import GenOutput from "./components/genOutput";
 import { SubjectsObj } from "./components/subjectsObj";
 import {
   List,
@@ -27,7 +26,8 @@ class App extends Component {
     data: [],
     dropdownValue: [],
     selectedData:[],
-    warningStyle: { display: "none" }
+    warningStyle: { display: "none" },
+    loginData:[]
   };
   handleChange = (e, { value }) => {
     let tmp = [];
@@ -39,6 +39,11 @@ class App extends Component {
     this.setState({ dropdownValue: value });
   };
 
+  loginAdd = data =>{
+    this.setState({loginData:data})
+    console.log(this.state)
+  }
+
   AddSec = (secs, keys) => {
     let temp = [...this.state.data];
 
@@ -48,7 +53,7 @@ class App extends Component {
       }
     }
     this.setState({ data: temp });
-
+    
     //console.log(this.state.data);
   };
 
@@ -95,6 +100,7 @@ class App extends Component {
   };
 
   render() {
+    
     console.log(this.state);
 
     return (
@@ -165,7 +171,7 @@ class App extends Component {
                   <Icon name="world" />
                   Nontri Login
                 </Header>
-                <Login />
+                <Login loginAdd={this.loginAdd}/>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row />
