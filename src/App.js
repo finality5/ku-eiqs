@@ -9,6 +9,7 @@ import axios from "axios";
 import Search from "./components/Search";
 import ListImport from "./components/List";
 import Login from "./components/Login";
+import Filter from "./components/Filter";
 import { SubjectsObj } from "./components/subjectsObj";
 import {
   List,
@@ -18,16 +19,19 @@ import {
   Header,
   Icon,
   Button,
-  Message
+  Message,
+  Container,
+  
 } from "semantic-ui-react";
 
 class App extends Component {
   state = {
     data: [],
     dropdownValue: [],
-    selectedData:[],
+    selectedData: [],
     warningStyle: { display: "none" },
-    loginData:[]
+    loginData: [],
+    isLogin: false
   };
   handleChange = (e, { value }) => {
     let tmp = [];
@@ -39,10 +43,13 @@ class App extends Component {
     this.setState({ dropdownValue: value });
   };
 
-  loginAdd = data =>{
-    this.setState({loginData:data})
-    console.log(this.state)
-  }
+  loginAdd = data => {
+    this.setState({ loginData: data });
+    if (this.state.loginData.authentication) {
+      this.setState({ isLogin: true });
+    }
+    console.log(this.state);
+  };
 
   AddSec = (secs, keys) => {
     let temp = [...this.state.data];
@@ -53,7 +60,7 @@ class App extends Component {
       }
     }
     this.setState({ data: temp });
-    
+
     //console.log(this.state.data);
   };
 
@@ -87,12 +94,13 @@ class App extends Component {
     if (check) {
       this.setState({ warningStyle: { display: "none" } });
       axios
-        .post("https://ku-eiqs-backend.herokuapp.com/examtbl", {"tbl":this.state.data})
+        .post("https://ku-eiqs-backend.herokuapp.com/examtbl", {
+          tbl: this.state.data
+        })
         .then(res => {
           console.log(res);
-          this.setState({selectedData:res.data.tbl})
+          this.setState({ selectedData: res.data.tbl });
         });
-      
     } else {
       this.setState({ warningStyle: { display: "block" } });
     }
@@ -100,7 +108,6 @@ class App extends Component {
   };
 
   render() {
-    
     console.log(this.state);
 
     return (
@@ -136,22 +143,22 @@ class App extends Component {
                   <Icon name="book" />
                   Subjects
                 </Header>
-                
-                  <List
-                    divided
-                    selection
-                    verticalAlign="middle"
-                    style={{ marginTop: "50px" }}
-                    className="App"
-                  >
-                    <ListImport
-                      res={this.state.data}
-                      AddSec={this.AddSec}
-                      Del={this.Del}
-                      secEmpty={this.buttonSubmit}
-                    />
-                  </List>
-                
+
+                <List
+                  divided
+                  selection
+                  verticalAlign="middle"
+                  style={{ marginTop: "50px" }}
+                  className="App"
+                >
+                  <ListImport
+                    res={this.state.data}
+                    AddSec={this.AddSec}
+                    Del={this.Del}
+                    secEmpty={this.buttonSubmit}
+                  />
+                </List>
+
                 <Grid.Row style={this.checkButton()}>
                   <Message
                     style={this.state.warningStyle}
@@ -166,22 +173,42 @@ class App extends Component {
                 </Grid.Row>
               </Grid.Column>
 
-              <Grid.Column>
-                <Header icon textAlign="center">
-                  <Icon name="world" />
-                  Nontri Login
-                </Header>
-                <Login loginAdd={this.loginAdd}/>
-              </Grid.Column>
+              {!this.state.isLogin ? (
+                <Grid.Column>
+                  <Header icon textAlign="center">
+                    <Icon name="world" />
+                    Nontri Login
+                  </Header>
+                  <Login loginAdd={this.loginAdd} />
+                </Grid.Column>
+              ) : (
+                <Grid.Column>
+                      
+                      {/* <Icon name="sign-out" size="large"  link/> */}
+                    
+                  <Header icon textAlign="center">
+                    <Icon name="users" color="black" circular />
+                    <Header.Content>Welcome</Header.Content>
+                    
+                  </Header>
+                  
+                  <Filter userData={this.state.loginData} />
+                 
+                </Grid.Column>
+              )}
             </Grid.Row>
             <Grid.Row />
           </Grid>
         </Segment>
-        <Grid columns={2} stackable relaxed="very" className="App" id="section3">
-          
+        <Grid
+          columns={2}
+          stackable
+          relaxed="very"
+          className="App"
+          id="section3"
+        >
           <Grid.Column width={8}>
-          <Card selectedData={this.state.selectedData}/>
-          
+            <Card selectedData={this.state.selectedData} />
           </Grid.Column>
           <Grid.Column width={8}>
             <main>
