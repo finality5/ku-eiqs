@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Input, Form, Button, Label } from "semantic-ui-react";
+import { Input, Form, Button, Label ,Message} from "semantic-ui-react";
 
 class LoginPage extends Component {
   constructor() {
@@ -52,17 +52,20 @@ class LoginPage extends Component {
   }
 
   render() {
-    // NOTE: I use data-attributes for easier E2E testing
-    // but you don't need to target those (any css-selector will work)
+    
 
     return (
       <div className="Login">
-        <Form onSubmit={this.handleSubmit}>
+        <Form error onSubmit={this.handleSubmit}>
           {this.state.error && (
-            <h3 data-test="error" onClick={this.dismissError}>
-              <Button onClick={this.dismissError}>✖</Button>
-              {this.state.error}
-            </h3>
+            
+              <Message
+                    onClick={this.dismissError}
+                    error
+                    header={this.state.error}
+                    
+                  />
+           
           )}
           <Form.Field required>
             <Input
