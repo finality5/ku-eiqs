@@ -21,7 +21,7 @@ export class studentFilter extends Component {
     };
     
     console.log("@",returnData)
-    if (this.state.year !== "" && this.state.semester !== "") {
+    if (this.state.year !== "" && this.state.semester !== "" && this.state.midfin !=="") {
       this.setState({ warningStyle: { display: "none" } });
       
       axios.post("https://ku-eiqs-backend.herokuapp.com/login",returnData).then(res => {
@@ -38,7 +38,7 @@ export class studentFilter extends Component {
       <div>
         <Tab
           panes={[
-            {
+            { 
               menuItem: (
                 <Menu.Item key="year">
                   <span>

@@ -11,6 +11,7 @@ import ListImport from "./components/List";
 import Login from "./components/Login";
 import Filter from "./components/Filter";
 import StudentFilter from "./components/studentFilter";
+import TeacherFilter from "./components/teacherFilter";
 import { SubjectsObj } from "./components/subjectsObj";
 import {
   List,
@@ -204,7 +205,7 @@ class App extends Component {
                     </Button.Content>
                   </Button>
                   <Divider section />
-                  {this.state.loginData.group==='l'?<StudentFilter userData={this.state.loginData}/>:null
+                  {this.state.loginData.group==='s'?<StudentFilter userData={this.state.loginData}/>:<TeacherFilter userData={this.state.loginData}/>
                   }
                 </Grid.Column>
               )}
