@@ -47,7 +47,7 @@ class App extends Component {
     if (this.state.loginData.authentication) {
       this.setState({ isLogin: true });
     }
-    console.log(this.state);
+   
   };
 
   AddSec = (secs, keys) => {
@@ -60,7 +60,7 @@ class App extends Component {
     }
     this.setState({ data: temp });
 
-    //console.log(this.state.data);
+   
   };
 
   Del = keyDel => {
@@ -204,7 +204,8 @@ class App extends Component {
                     </Button.Content>
                   </Button>
                   <Divider section />
-                  <StudentFilter />
+                  {this.state.loginData.group==='l'?<StudentFilter userData={this.state.loginData}/>:null
+                  }
                 </Grid.Column>
               )}
             </Grid.Row>
