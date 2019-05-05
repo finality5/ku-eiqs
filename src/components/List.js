@@ -48,7 +48,8 @@ export class ListExport extends Component {
           
         
           <Grid.Column width={1} style={{float:"left" , width:30}}>
-          <Icon  name="book"  />
+          {subj.sec===0?
+          <Icon  name="book"  />:<Icon name="check circle" color="green" />}
           </Grid.Column>
           <Grid.Column width={3} style={{ color:"black" ,float:"left" , width:80}}>
           {subj.key}

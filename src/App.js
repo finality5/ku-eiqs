@@ -31,7 +31,8 @@ class App extends Component {
     selectedData: [],
     warningStyle: { display: "none" },
     loginData: {},
-    isLogin: false
+    isLogin: false,
+    buttonClick: false
   };
   handleChange = (e, { value }) => {
     let tmp = [];
@@ -84,6 +85,7 @@ class App extends Component {
   };
 
   buttonSubmit = () => {
+    this.setState({buttonClick: true})
     let check = true;
 
     for (let i = 0; i < this.state.data.length; i++) {
@@ -111,6 +113,11 @@ class App extends Component {
     this.setState({ loginData: {} });
     this.setState({ isLogin: false });
   };
+
+  filteredData=(res)=>{
+    this.setState({buttonClick: true})
+    this.setState({selectedData:res})
+  }
 
   render() {
     console.log(this.state);
@@ -205,7 +212,7 @@ class App extends Component {
                     </Button.Content>
                   </Button>
                   <Divider section />
-                  {this.state.loginData.group==='s'?<StudentFilter userData={this.state.loginData}/>:<TeacherFilter userData={this.state.loginData}/>
+                  {this.state.loginData.group==='s'?<StudentFilter userData={this.state.loginData} filteredData={this.filteredData}/>:<TeacherFilter userData={this.state.loginData} filteredData={this.filteredData}/>
                   }
                 </Grid.Column>
               )}
@@ -213,6 +220,7 @@ class App extends Component {
             <Grid.Row />
           </Grid>
         </Segment>
+        {this.state.buttonClick?
         <Grid
           columns={2}
           stackable
@@ -228,7 +236,7 @@ class App extends Component {
               <Calendar calDay={this.state.selectedData} />
             </main>
           </Grid.Column>
-        </Grid>
+        </Grid>: null}
       </div>
     );
   }

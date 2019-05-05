@@ -130,13 +130,38 @@ export class teacherFilter extends Component {
             check=false
         }
     }
+    
+    
    
     if (check) {
+        let returnData = {
+            token: this.props.userData.token,
+            name: this.props.userData.userdata.name,
+            group: this.props.userData.group,
+            data: {
+                stdid:this.state.stdid,
+                stdfname:this.state.stdfname, 
+                stdlname:this.state.stdlname,
+                room:this.state.room,
+                sec:this.state.sec,
+                course:this.state.course,
+                depid:this.state.depid,
+                facid:this.state.facid,
+                date:this.state.date,
+                time:this.state.time,
+                year:this.state.year,
+                sem:this.state.sem,
+                mf:this.state.mf
+                }
+          };
+          
+          console.log("@",returnData)
         this.setState({ warningStyle: { display: "none" } });
         console.log('&',"Ready! post")
-        // axios.post("https://ku-eiqs-backend.herokuapp.com/login",returnData).then(res => {
-        //   console.log(res);
-        // });
+         axios.post("https://ku-eiqs-backend.herokuapp.com/login",returnData).then(res => {
+           console.log(res);
+           this.props.filteredData(res);
+         });
       } else {
         this.setState({ warningStyle: { display: "block" } });
       }
@@ -383,7 +408,7 @@ export class teacherFilter extends Component {
         <Icon name="building outline" size="huge" />
       </div>
       <div style={{ textAlign: "center",marginTop: "1em" }}>
-        <Header>Course</Header>
+        <Header>Faculty ID</Header>
       </div>
       <div style={{ textAlign: "center", marginTop: "1em" }}>
         <Dropdown
