@@ -10,6 +10,7 @@ import Search from "./components/Search";
 import ListImport from "./components/List";
 import Login from "./components/Login";
 import Filter from "./components/Filter";
+import StudentFilter from "./components/studentFilter";
 import { SubjectsObj } from "./components/subjectsObj";
 import {
   List,
@@ -19,9 +20,7 @@ import {
   Header,
   Icon,
   Button,
-  Message,
-  Container,
-  
+  Message
 } from "semantic-ui-react";
 
 class App extends Component {
@@ -30,7 +29,7 @@ class App extends Component {
     dropdownValue: [],
     selectedData: [],
     warningStyle: { display: "none" },
-    loginData: [],
+    loginData: {},
     isLogin: false
   };
   handleChange = (e, { value }) => {
@@ -105,6 +104,11 @@ class App extends Component {
       this.setState({ warningStyle: { display: "block" } });
     }
     return check;
+  };
+
+  loginClick = () => {
+    this.setState({ loginData: {} });
+    this.setState({ isLogin: false });
   };
 
   render() {
@@ -183,17 +187,24 @@ class App extends Component {
                 </Grid.Column>
               ) : (
                 <Grid.Column>
-                      
-                      {/* <Icon name="sign-out" size="large"  link/> */}
-                    
                   <Header icon textAlign="center">
                     <Icon name="users" color="black" circular />
                     <Header.Content>Welcome</Header.Content>
-                    
                   </Header>
-                  
+
                   <Filter userData={this.state.loginData} />
-                 
+                  <Button
+                    animated
+                    style={{ marginTop: "2em" }}
+                    onClick={this.loginClick}
+                  >
+                    <Button.Content visible>Log out</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="sign-out" />
+                    </Button.Content>
+                  </Button>
+                  <Divider section />
+                  <StudentFilter />
                 </Grid.Column>
               )}
             </Grid.Row>
