@@ -164,25 +164,7 @@ export class teacherFilter extends Component {
   };
 
   render() {
-    console.log({
-      token: this.props.userData.token,
-      username: this.props.userData.userdata.name,
-      query_data: {
-        stdid: this.state.stdid,
-        stdfname: this.state.stdfname,
-        stdlname: this.state.stdlname,
-        room: this.state.room,
-        sec: this.state.sec,
-        courseid: this.state.course,
-        depid: this.state.depid,
-        facid: this.state.facid,
-        date: this.state.date,
-        time: this.state.time,
-        year: this.state.year,
-        sem: this.state.sem,
-        mf: this.state.mf
-      }
-    });
+    
     let data = [
       {
         key: "stdid",

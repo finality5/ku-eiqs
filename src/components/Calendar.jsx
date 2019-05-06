@@ -1,6 +1,6 @@
 import React from "react";
 import dateFns from "date-fns";
-import { Icon, Popup } from "semantic-ui-react";
+import { Icon, Popup,List } from "semantic-ui-react";
 import "../App.css";
 class Calendar extends React.Component {
   state = {
@@ -8,9 +8,28 @@ class Calendar extends React.Component {
     selectedDate: new Date()
   };
   addID = a => {
-    return a.map(Data => (
-      <div
-        key={Data.key}
+    if (a.length <= 2) {
+      return a.map(Data => (
+        <div
+          key={Data.key}
+          style={{
+            backgroundImage: "linear-gradient(90deg, #e8e8e8 100%, #a6a6a6 0%)",
+            border: "1px solid white",
+            borderRadius: "2px",
+            fontWeight: 700,
+            fontSize: "90%",
+            lineHeight: 1.5,
+            color: "#404040"
+          }}
+        >
+          {Data.key}
+        </div>
+      ));
+    }
+    else{
+      return(
+      <div><div
+        key={a[0].key}
         style={{
           backgroundImage: "linear-gradient(90deg, #e8e8e8 100%, #a6a6a6 0%)",
           border: "1px solid white",
@@ -21,10 +40,42 @@ class Calendar extends React.Component {
           color: "#404040"
         }}
       >
-        {Data.key}
+        {a[0].key}
       </div>
-    ));
+      <div
+          key={a[1].key}
+          style={{
+            backgroundImage: "linear-gradient(90deg, #e8e8e8 100%, #a6a6a6 0%)",
+            border: "1px solid white",
+            borderRadius: "2px",
+            fontWeight: 700,
+            fontSize: "90%",
+            lineHeight: 1.5,
+            color: "#404040"
+          }}
+        >
+          {a[1].key}
+        </div>
+        <div style={{textAlign:"center" , color:"red"}}>
+        :::
+        </div>
+        </div>);
+    }
   };
+
+  showData= (a) =>{
+    
+    return a.map(Data => (
+      
+      <List.Item key={Data.key}>
+      <List.Icon name='book' size='large' verticalAlign='middle' />
+      <List.Content>
+        <List.Header as='a'>{Data.key}&nbsp;&nbsp;{Data.coursename}</List.Header>
+        <List.Description as='a'>{Data.time}</List.Description>
+      </List.Content>
+    </List.Item>
+    ))
+  }
 
   renderHeader() {
     const dateFormat = "MMMM YYYY";
@@ -94,6 +145,7 @@ class Calendar extends React.Component {
           days.push(
             <Popup
               key={day}
+              wide='very'
               trigger={
                 <div
                   className={`col cell ${
@@ -112,7 +164,7 @@ class Calendar extends React.Component {
                   <div style={{ marginTop: "1.5em" }}>{this.addID(a)}</div>
                 </div>
               }
-              content="กำลังแก้"
+              content={<List divided relaxed>{this.showData(a)}</List>}
               on="hover"
             />
           );

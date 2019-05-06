@@ -33,8 +33,8 @@ class LoginPage extends Component {
         }
         this.setState({loginData:res.data})
         this.props.loginAdd(this.state.loginData)
-        console.log(res);
-        console.log(this.state);
+        //console.log(res);
+        //console.log(this.state);
       });
     //console.log(this.state);
 

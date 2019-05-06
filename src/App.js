@@ -102,7 +102,7 @@ class App extends Component {
           tbl: this.state.data
         })
         .then(res => {
-          console.log("####",res);
+          //console.log("####",res);
           this.setState({ selectedData: res.data.tbl });
         });
     } else {
@@ -122,7 +122,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
+    //console.log(this.state)
     return (
       <div>
         <Navbar />

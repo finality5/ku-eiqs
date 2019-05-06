@@ -34,11 +34,7 @@ export class studentFilter extends Component {
   };
 
   render() {
-    console.log({
-      token: this.props.userData.token,
-      username: this.props.userData.userdata.name,
-      query_data: { year: this.state.year, sem: this.state.sem ,mf: this.state.mf }
-    });
+    
     return (
       <div>
         <Tab
