@@ -15,9 +15,8 @@ export class studentFilter extends Component {
   buttonSubmit = () => {
     let returnData = {
       token: this.props.userData.token,
-      name: this.props.userData.userdata.name,
-      group: this.props.userData.group,
-      data: { year: this.state.year, semester: this.state.semester ,mf: this.state.mf }
+      username: this.props.userData.userdata.name,
+      query_data: { year: this.state.year, semester: this.state.semester ,mf: this.state.mf }
     };
     
     console.log("@",returnData)
@@ -25,7 +24,7 @@ export class studentFilter extends Component {
       this.setState({ warningStyle: { display: "none" } });
       
       axios.post("https://ku-eiqs-backend.herokuapp.com/stdquery",returnData).then(res => {
-        console.log(res)
+        console.log('*',res)
         //this.props.filteredData(res);
       });
     } else {

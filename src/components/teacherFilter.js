@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { SubjectsDrop } from "./subjectsDrop";
 import { SubjectsObj } from "./subjectsObj";
-import {Room,Dep,Time,Faculty} from "./data";
+import { Room, Dep, Time, Faculty } from "./data";
 import {
   Menu,
   Tab,
@@ -29,7 +29,7 @@ export class teacherFilter extends Component {
     dropStdlname: "",
 
     room: "",
-    dropRoom:"",
+    dropRoom: "",
 
     sec: "",
     dropSec: "",
@@ -38,20 +38,20 @@ export class teacherFilter extends Component {
     dropCourse: "",
 
     depid: "",
-    dropDepid:"",
+    dropDepid: "",
 
     facid: "",
-    dropFacid:"",
+    dropFacid: "",
 
     date: "",
 
     time: "",
-    dropTime:"",
+    dropTime: "",
 
     year: "",
     sem: "",
     mf: "",
-    
+
     dropYear: "",
     dropSem: "",
     dropMidfin: "",
@@ -70,124 +70,118 @@ export class teacherFilter extends Component {
     this.setState({ date: date });
   };
 
-  
   buttonSubmit = () => {
-    if(this.state.dropVal.indexOf("stdid")===-1){
-        this.setState({stdid:""})
-        this.setState({dropStdid:""})
+    if (this.state.dropVal.indexOf("stdid") === -1) {
+      this.setState({ stdid: "" });
+      this.setState({ dropStdid: "" });
     }
-    if(this.state.dropVal.indexOf("stdfname")===-1){
-        this.setState({stdfname:""})
-        this.setState({dropStdfname:""})
+    if (this.state.dropVal.indexOf("stdfname") === -1) {
+      this.setState({ stdfname: "" });
+      this.setState({ dropStdfname: "" });
     }
-    if(this.state.dropVal.indexOf("stdlname")===-1){
-        this.setState({stdlname:""})
-        this.setState({dropStdlname:""})
+    if (this.state.dropVal.indexOf("stdlname") === -1) {
+      this.setState({ stdlname: "" });
+      this.setState({ dropStdlname: "" });
     }
-    if(this.state.dropVal.indexOf("room")===-1){
-        this.setState({room:""})
-        this.setState({dropRoom:""})
+    if (this.state.dropVal.indexOf("room") === -1) {
+      this.setState({ room: "" });
+      this.setState({ dropRoom: "" });
     }
-    if(this.state.dropVal.indexOf("sec")===-1){
-        this.setState({sec:""})
-        this.setState({dropSec:""})
+    if (this.state.dropVal.indexOf("sec") === -1) {
+      this.setState({ sec: "" });
+      this.setState({ dropSec: "" });
     }
-    if(this.state.dropVal.indexOf("course")===-1){
-        this.setState({course:""})
-        this.setState({dropCourse:""})
+    if (this.state.dropVal.indexOf("course") === -1) {
+      this.setState({ course: "" });
+      this.setState({ dropCourse: "" });
     }
-    if(this.state.dropVal.indexOf("depid")===-1){
-        this.setState({depid:""})
-        this.setState({dropDepid:""})
+    if (this.state.dropVal.indexOf("depid") === -1) {
+      this.setState({ depid: "" });
+      this.setState({ dropDepid: "" });
     }
-    if(this.state.dropVal.indexOf("facid")===-1){
-        this.setState({facid:""})
-        this.setState({dropFacid:""})
+    if (this.state.dropVal.indexOf("facid") === -1) {
+      this.setState({ facid: "" });
+      this.setState({ dropFacid: "" });
     }
-    if(this.state.dropVal.indexOf("date")===-1){
-        this.setState({date:""})
-        
+    if (this.state.dropVal.indexOf("date") === -1) {
+      this.setState({ date: "" });
     }
-    if(this.state.dropVal.indexOf("time")===-1){
-        this.setState({time:""})
-        this.setState({dropTime:""})
+    if (this.state.dropVal.indexOf("time") === -1) {
+      this.setState({ time: "" });
+      this.setState({ dropTime: "" });
     }
-    if(this.state.dropVal.indexOf("year")===-1){
-        this.setState({year:""})
-        this.setState({dropYear:""})
+    if (this.state.dropVal.indexOf("year") === -1) {
+      this.setState({ year: "" });
+      this.setState({ dropYear: "" });
     }
-    if(this.state.dropVal.indexOf("sem")===-1){
-        this.setState({sem:""})
-        this.setState({dropSem:""})
+    if (this.state.dropVal.indexOf("sem") === -1) {
+      this.setState({ sem: "" });
+      this.setState({ dropSem: "" });
     }
-    if(this.state.dropVal.indexOf("mf")===-1){
-        this.setState({mf:""})
-        this.setState({dropMidfin:""})
+    if (this.state.dropVal.indexOf("mf") === -1) {
+      this.setState({ mf: "" });
+      this.setState({ dropMidfin: "" });
     }
-    let check=true
-    for(let i=0 ;i<this.state.dropVal.length ; i++){
-        if(this.state[this.state.dropVal[i]]===""){
-            check=false
-        }
-    }
-    
-    
-   
-    if (check) {
-        let returnData = {
-            token: this.props.userData.token,
-            name: this.props.userData.userdata.name,
-            group: this.props.userData.group,
-            data: {
-                stdid:this.state.stdid,
-                stdfname:this.state.stdfname, 
-                stdlname:this.state.stdlname,
-                room:this.state.room,
-                sec:this.state.sec,
-                course:this.state.course,
-                depid:this.state.depid,
-                facid:this.state.facid,
-                date:this.state.date,
-                time:this.state.time,
-                year:this.state.year,
-                sem:this.state.sem,
-                mf:this.state.mf
-                }
-          };
-          
-          console.log("@",returnData)
-        this.setState({ warningStyle: { display: "none" } });
-        
-         axios.post("https://ku-eiqs-backend.herokuapp.com/adminquery",{
-          token: this.props.userData.token,
-          name: this.props.userData.userdata.name,
-          group: this.props.userData.group,
-          data: {
-              stdid:this.state.stdid,
-              stdfname:this.state.stdfname, 
-              stdlname:this.state.stdlname,
-              room:this.state.room,
-              sec:this.state.sec,
-              course:this.state.course,
-              depid:this.state.depid,
-              facid:this.state.facid,
-              date:this.state.date,
-              time:this.state.time,
-              year:this.state.year,
-              sem:this.state.sem,
-              mf:this.state.mf
-              }
-        }).then(res => {
-           console.log("*",res);
-           //this.props.filteredData(res);
-         });
-      } else {
-        this.setState({ warningStyle: { display: "block" } });
+    let check = true;
+    for (let i = 0; i < this.state.dropVal.length; i++) {
+      if (this.state[this.state.dropVal[i]] === "") {
+        check = false;
       }
+    }
+
+    if (check) {
+      
+      this.setState({ warningStyle: { display: "none" } });
+
+      axios
+        .post("https://ku-eiqs-backend.herokuapp.com/adminquery", {
+          token: this.props.userData.token,
+          username: this.props.userData.userdata.name,
+          query_data: {
+            stdid: this.state.stdid,
+            stdfname: this.state.stdfname,
+            stdlname: this.state.stdlname,
+            room: this.state.room,
+            sec: this.state.sec,
+            course: this.state.course,
+            depid: this.state.depid,
+            facid: this.state.facid,
+            date: this.state.date,
+            time: this.state.time,
+            year: this.state.year,
+            sem: this.state.sem,
+            mf: this.state.mf
+          }
+        })
+        .then(res => {
+          console.log("*", res);
+          //this.props.filteredData(res);
+        });
+    } else {
+      this.setState({ warningStyle: { display: "block" } });
+    }
   };
 
   render() {
-    console.log(this.state);
+    console.log({
+      token: this.props.userData.token,
+      username: this.props.userData.userdata.name,
+      query_data: {
+        stdid: this.state.stdid,
+        stdfname: this.state.stdfname,
+        stdlname: this.state.stdlname,
+        room: this.state.room,
+        sec: this.state.sec,
+        course: this.state.course,
+        depid: this.state.depid,
+        facid: this.state.facid,
+        date: this.state.date,
+        time: this.state.time,
+        year: this.state.year,
+        sem: this.state.sem,
+        mf: this.state.mf
+      }
+    });
     let data = [
       {
         key: "stdid",
@@ -208,7 +202,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="user" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Student ID</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -243,7 +237,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="user" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Student First Name</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -278,7 +272,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="user" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Student Last Name</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -308,30 +302,34 @@ export class teacherFilter extends Component {
             </span>
           </Menu.Item>
         ),
-        render: () => <Tab.Pane><div style={{ textAlign: "center" }}>
-        <Icon name="building" size="huge" />
-      </div>
-      <div style={{ textAlign: "center",marginTop: "1em" }}>
-        <Header>Room</Header>
-      </div>
-      <div style={{ textAlign: "center", marginTop: "1em" }}>
-        <Dropdown
-          placeholder="Select Room"
-          className="backgroundColor:#A5D2FF"
-          fluid
-          lazyLoad
-          search
-          selection
-          options={Room}
-          value={this.state.dropRoom}
-          onChange={(e, { value }) => {
-            this.setState({
-              room:value
-            });
-            this.setState({ dropRoom: value });
-          }}
-        />
-      </div></Tab.Pane>
+        render: () => (
+          <Tab.Pane>
+            <div style={{ textAlign: "center" }}>
+              <Icon name="building" size="huge" />
+            </div>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Header>Room</Header>
+            </div>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Dropdown
+                placeholder="Select Room"
+                className="backgroundColor:#A5D2FF"
+                fluid
+                lazyLoad
+                search
+                selection
+                options={Room}
+                value={this.state.dropRoom}
+                onChange={(e, { value }) => {
+                  this.setState({
+                    room: value
+                  });
+                  this.setState({ dropRoom: value });
+                }}
+              />
+            </div>
+          </Tab.Pane>
+        )
       },
       {
         key: "sec",
@@ -352,7 +350,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="at" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Section</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -387,7 +385,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="book" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Course</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -430,30 +428,34 @@ export class teacherFilter extends Component {
             </span>
           </Menu.Item>
         ),
-        render: () => <Tab.Pane><div style={{ textAlign: "center" }}>
-        <Icon name="building outline" size="huge" />
-      </div>
-      <div style={{ textAlign: "center",marginTop: "1em" }}>
-        <Header>Department</Header>
-      </div>
-      <div style={{ textAlign: "center", marginTop: "1em" }}>
-        <Dropdown
-          placeholder="Select Department"
-          className="backgroundColor:#A5D2FF"
-          fluid
-          lazyLoad
-          search
-          selection
-          options={Dep}
-          value={this.state.dropDepid}
-          onChange={(e, { value }) => {
-            this.setState({
-              depid:value
-            });
-            this.setState({ dropDepid: value });
-          }}
-        />
-      </div></Tab.Pane>
+        render: () => (
+          <Tab.Pane>
+            <div style={{ textAlign: "center" }}>
+              <Icon name="building outline" size="huge" />
+            </div>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Header>Department</Header>
+            </div>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Dropdown
+                placeholder="Select Department"
+                className="backgroundColor:#A5D2FF"
+                fluid
+                lazyLoad
+                search
+                selection
+                options={Dep}
+                value={this.state.dropDepid}
+                onChange={(e, { value }) => {
+                  this.setState({
+                    depid: value
+                  });
+                  this.setState({ dropDepid: value });
+                }}
+              />
+            </div>
+          </Tab.Pane>
+        )
       },
       {
         key: "facid",
@@ -469,30 +471,34 @@ export class teacherFilter extends Component {
             </span>
           </Menu.Item>
         ),
-        render: () => <Tab.Pane><div style={{ textAlign: "center" }}>
-        <Icon name="building outline" size="huge" />
-      </div>
-      <div style={{ textAlign: "center",marginTop: "1em" }}>
-        <Header>Faculty</Header>
-      </div>
-      <div style={{ textAlign: "center", marginTop: "1em" }}>
-        <Dropdown
-          placeholder="Select Faculty"
-          className="backgroundColor:#A5D2FF"
-          fluid
-          lazyLoad
-          search
-          selection
-          options={Faculty}
-          value={this.state.dropFacid}
-          onChange={(e, { value }) => {
-            this.setState({
-              facid:value
-            });
-            this.setState({ dropFacid: value });
-          }}
-        />
-      </div></Tab.Pane>
+        render: () => (
+          <Tab.Pane>
+            <div style={{ textAlign: "center" }}>
+              <Icon name="building outline" size="huge" />
+            </div>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Header>Faculty</Header>
+            </div>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Dropdown
+                placeholder="Select Faculty"
+                className="backgroundColor:#A5D2FF"
+                fluid
+                lazyLoad
+                search
+                selection
+                options={Faculty}
+                value={this.state.dropFacid}
+                onChange={(e, { value }) => {
+                  this.setState({
+                    facid: value
+                  });
+                  this.setState({ dropFacid: value });
+                }}
+              />
+            </div>
+          </Tab.Pane>
+        )
       },
       {
         key: "date",
@@ -513,7 +519,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="calendar outline" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Date</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -543,30 +549,34 @@ export class teacherFilter extends Component {
             </span>
           </Menu.Item>
         ),
-        render: () => <Tab.Pane><div style={{ textAlign: "center" }}>
-        <Icon name="clock" size="huge" />
-      </div>
-      <div style={{ textAlign: "center",marginTop: "1em" }}>
-        <Header>Time</Header>
-      </div>
-      <div style={{ textAlign: "center", marginTop: "1em" }}>
-        <Dropdown
-          placeholder="Select Time"
-          className="backgroundColor:#A5D2FF"
-          fluid
-          lazyLoad
-          search
-          selection
-          options={Time}
-          value={this.state.dropTime}
-          onChange={(e, { value }) => {
-            this.setState({
-              time:value
-            });
-            this.setState({ dropTime: value });
-          }}
-        />
-      </div></Tab.Pane>
+        render: () => (
+          <Tab.Pane>
+            <div style={{ textAlign: "center" }}>
+              <Icon name="clock" size="huge" />
+            </div>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Header>Time</Header>
+            </div>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Dropdown
+                placeholder="Select Time"
+                className="backgroundColor:#A5D2FF"
+                fluid
+                lazyLoad
+                search
+                selection
+                options={Time}
+                value={this.state.dropTime}
+                onChange={(e, { value }) => {
+                  this.setState({
+                    time: value
+                  });
+                  this.setState({ dropTime: value });
+                }}
+              />
+            </div>
+          </Tab.Pane>
+        )
       },
       {
         key: "year",
@@ -587,7 +597,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="calendar alternate outline" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Year</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -631,7 +641,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="calendar alternate outline" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Semester</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -680,7 +690,7 @@ export class teacherFilter extends Component {
             <div style={{ textAlign: "center" }}>
               <Icon name="book" size="huge" />
             </div>
-            <div style={{ textAlign: "center",marginTop: "1em" }}>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
               <Header>Mid/Final</Header>
             </div>
             <div style={{ textAlign: "center", marginTop: "1em" }}>
@@ -712,61 +722,68 @@ export class teacherFilter extends Component {
       }
     ];
     return (
-        <div>
-      <Grid centered>
-        <Dropdown
-          placeholder="Choose Filter"
-          className="backgroundColor:#A5D2FF"
-          fluid
-          lazyLoad
-          multiple
-          search
-          selection
-          options={[
-            { key: "stdid", text: "Student ID", value: "stdid" },
-            { key: "stdfname", text: "Student First Name", value: "stdfname" },
-            { key: "stdlname", text: "Student Last Name", value: "stdlname" },
-            { key: "room", text: "Room", value: "room" },
-            { key: "sec", text: "Section", value: "sec" },
-            { key: "course", text: "Course", value: "course" },
-            { key: "depid", text: "Department", value: "depid" },
-            { key: "facid", text: "Faculty", value: "facid" },
-            { key: "date", text: "Date", value: "date" },
-            { key: "time", text: "Time", value: "time" },
-            { key: "year", text: "Year", value: "year" },
-            { key: "sem", text: "Semester", value: "sem" },
-            { key: "mf", text: "Mid/Final", value: "mf" }
-          ]}
-          value={this.state.dropVal}
-          onChange={(e, { value }) => {
-            this.setState({ dropVal: value });
-            
-          }}
-          
-        />
-        <Grid.Column width={16}>
-          <Tab
-            style={{ marginTop: "1em" }}
-            menu={{ fluid: true, vertical: true, tabular: true }}
-            panes={this.createFunc(data)}
-            grid={{ paneWidth: 8, tabWidth: 8 }}
+      <div>
+        <Grid centered>
+          <Dropdown
+            placeholder="Choose Filter"
+            className="backgroundColor:#A5D2FF"
+            fluid
+            lazyLoad
+            multiple
+            search
+            selection
+            options={[
+              { key: "stdid", text: "Student ID", value: "stdid" },
+              {
+                key: "stdfname",
+                text: "Student First Name",
+                value: "stdfname"
+              },
+              { key: "stdlname", text: "Student Last Name", value: "stdlname" },
+              { key: "room", text: "Room", value: "room" },
+              { key: "sec", text: "Section", value: "sec" },
+              { key: "course", text: "Course", value: "course" },
+              { key: "depid", text: "Department", value: "depid" },
+              { key: "facid", text: "Faculty", value: "facid" },
+              { key: "date", text: "Date", value: "date" },
+              { key: "time", text: "Time", value: "time" },
+              { key: "year", text: "Year", value: "year" },
+              { key: "sem", text: "Semester", value: "sem" },
+              { key: "mf", text: "Mid/Final", value: "mf" }
+            ]}
+            value={this.state.dropVal}
+            onChange={(e, { value }) => {
+              this.setState({ dropVal: value });
+            }}
           />
-        </Grid.Column>
+          <Grid.Column width={16}>
+            <Tab
+              style={{ marginTop: "1em" }}
+              menu={{ fluid: true, vertical: true, tabular: true }}
+              panes={this.createFunc(data)}
+              grid={{ paneWidth: 8, tabWidth: 8 }}
+            />
+          </Grid.Column>
         </Grid>
-          <div style={{ textAlign: "center",marginTop: "1em" }}>
-        <Message
-          style={this.state.warningStyle}
-          error
-          content="Please complete your chosen filters"
-        />
+        <div style={{ textAlign: "center", marginTop: "1em" }}>
+          <Message
+            style={this.state.warningStyle}
+            error
+            content="Please complete your chosen filters"
+          />
         </div>
-        <div style={{ textAlign: "center",marginTop: "1em" }}>
-        <Button type="submit" animated onClick={this.buttonSubmit} style={{marginTop:"1em"}}>
-          <Button.Content visible>Submit</Button.Content>
-          <Button.Content hidden>Go!</Button.Content>
-        </Button>
+        <div style={{ textAlign: "center", marginTop: "1em" }}>
+          <Button
+            type="submit"
+            animated
+            onClick={this.buttonSubmit}
+            style={{ marginTop: "1em" }}
+          >
+            <Button.Content visible>Submit</Button.Content>
+            <Button.Content hidden>Go!</Button.Content>
+          </Button>
         </div>
-        </div>
+      </div>
     );
   }
 }
