@@ -10,6 +10,7 @@ class Calendar extends React.Component {
   addID = a => {
     return a.map(Data => (
       <div
+        key={Data.key}
         style={{
           backgroundImage: "linear-gradient(90deg, #e8e8e8 100%, #a6a6a6 0%)",
           border: "1px solid white",
@@ -92,6 +93,7 @@ class Calendar extends React.Component {
         if (a.length > 0) {
           days.push(
             <Popup
+              key={day}
               trigger={
                 <div
                   className={`col cell ${
@@ -106,12 +108,12 @@ class Calendar extends React.Component {
                 >
                   <span className="number">{formattedDate}</span>
                   <span className="bg">{formattedDate} </span>
+
                   <div style={{ marginTop: "1.5em" }}>{this.addID(a)}</div>
                 </div>
               }
-
-              content='Sends an email invite to a friend.'
-              on='hover'
+              content="กำลังแก้"
+              on="hover"
             />
           );
         } else {

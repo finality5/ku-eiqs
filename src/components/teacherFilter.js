@@ -154,7 +154,7 @@ export class teacherFilter extends Component {
         })
         .then(res => {
           console.log("*", res);
-          //this.props.filteredData(res);
+          this.props.filteredData(res);
         });
     } else {
       this.setState({ warningStyle: { display: "block" } });

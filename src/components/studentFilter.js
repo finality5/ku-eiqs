@@ -26,7 +26,7 @@ export class studentFilter extends Component {
       
       axios.post("https://ku-eiqs-backend.herokuapp.com/stdquery",returnData).then(res => {
         console.log('*',res)
-        //this.props.filteredData(res);
+        this.props.filteredData(res);
       });
     } else {
       this.setState({ warningStyle: { display: "block" } });

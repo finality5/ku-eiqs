@@ -118,7 +118,7 @@ class App extends Component {
 
   filteredData=(res)=>{
     this.setState({buttonClick: true})
-    this.setState({selectedData:res})
+    this.setState({selectedData:res.data.tbl})
   }
 
   render() {
