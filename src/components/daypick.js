@@ -23,7 +23,7 @@ class daypick extends React.Component {
   }
   
   render() {
-      console.log("%%%",this.state)
+      
     return (
       <DatePicker
       placeholderText="Click to select a date"

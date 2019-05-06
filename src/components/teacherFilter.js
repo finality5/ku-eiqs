@@ -43,6 +43,7 @@ export class teacherFilter extends Component {
     dropFacid: "",
 
     date: "",
+    dropDate:"",
 
     time: "",
     dropTime: "",
@@ -66,7 +67,8 @@ export class teacherFilter extends Component {
   };
 
   addDate = date => {
-    this.setState({ date: date });
+    this.setState({ date: dateFns.format(date, "DDMMYYYY")} );
+    this.setState({dropDate:date})
   };
 
   buttonSubmit = () => {
@@ -524,7 +526,7 @@ export class teacherFilter extends Component {
                 <h4>
                   {this.state.date === ""
                     ? null
-                    : dateFns.format(this.state.date, "ddd DD-MMM-YYYY")}
+                    : dateFns.format(this.state.dropDate, "ddd DD-MMM-YYYY")}
                 </h4>
               </div>
             </div>
