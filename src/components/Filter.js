@@ -6,7 +6,7 @@ export class Filter extends Component {
     
     
     <Grid centered>
-    <Grid.Column width={3} >
+    <Grid.Column width={6} >
     <Divider fitted />
       <List animated selection verticalAlign="middle" relaxed="very">
         <List.Item>
@@ -15,7 +15,15 @@ export class Filter extends Component {
             <List.Header>{this.props.userData.userdata.name}</List.Header>
           </List.Content>
         </List.Item>
+
         <List.Item>
+        
+          <Icon name="id badge outline" size="large"  />
+          <List.Content>
+            <List.Header>
+            {this.props.userData.userdata.stdid}
+            </List.Header>
+          </List.Content>
           <Icon name="at" size="large"  />
           <List.Content>
             <List.Header>
@@ -23,6 +31,36 @@ export class Filter extends Component {
             </List.Header>
           </List.Content>
         </List.Item>
+
+        
+      
+        <List.Item>
+        <Icon name="home" size="large"  />
+          <List.Content>
+            <List.Header>
+            {this.props.userData.userdata.department}
+            </List.Header>
+          </List.Content>
+        </List.Item>
+
+        <List.Item>
+          <Icon name="building outline" size="large"  />
+          <List.Content>
+            <List.Header>
+            {this.props.userData.userdata.faculty}
+            </List.Header>
+          </List.Content>
+        </List.Item>
+
+        <List.Item>
+          <Icon name="mail" size="large"  />
+          <List.Content>
+            <List.Header>
+            {this.props.userData.userdata.email}
+            </List.Header>
+          </List.Content>
+        </List.Item>
+      
       </List>
       
       </Grid.Column>
