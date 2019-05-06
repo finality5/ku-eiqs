@@ -13,6 +13,7 @@ import Filter from "./components/Filter";
 import StudentFilter from "./components/studentFilter";
 import TeacherFilter from "./components/teacherFilter";
 import { SubjectsObj } from "./components/subjectsObj";
+
 import {
   List,
   Divider,
@@ -23,6 +24,7 @@ import {
   Button,
   Message
 } from "semantic-ui-react";
+
 
 class App extends Component {
   state = {
@@ -120,8 +122,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
-
+    
     return (
       <div>
         <Navbar />

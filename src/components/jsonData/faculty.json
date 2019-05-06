@@ -1,4 +1,4 @@
-export const Faculty = [
+[
     {
         "key": "A",
         "text": "Faculty of Agriculture",

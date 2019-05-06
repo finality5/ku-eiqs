@@ -1,0 +1,612 @@
+[
+    {
+        "key": "A04",
+        "text": "A04 Soil Science ปฐพีวิทยา",
+        "value": "A04"
+    },
+    {
+        "key": "A08",
+        "text": "A08 Home Economics คหกรรมศาสตร์",
+        "value": "A08"
+    },
+    {
+        "key": "A11",
+        "text": "A11 Agricultural Extension and Communication ส่งเสริมและนิเทศศาสตร์เกษตร",
+        "value": "A11"
+    },
+    {
+        "key": "A13",
+        "text": "A13 Agricultural Chemistry เคมีการเกษตร",
+        "value": "A13"
+    },
+    {
+        "key": "A15",
+        "text": "A15 Agricultural Science วิทยาศาสตร์เกษตร",
+        "value": "A15"
+    },
+    {
+        "key": "A17",
+        "text": "A17 Tropical Agriculture เกษตรเขตร้อน",
+        "value": "A17"
+    },
+    {
+        "key": "A18",
+        "text": "A18 Food and Nutrition อาหารและโภชนาการ",
+        "value": "A18"
+    },
+    {
+        "key": "A19",
+        "text": "A19 Pest Management การจัดการศัตรูพืชและสัตว์",
+        "value": "A19"
+    },
+    {
+        "key": "A20",
+        "text": "A20 Industrial Animal Science สัตวศาสตร์อุตสาหกรรม",
+        "value": "A20"
+    },
+    {
+        "key": "B00",
+        "text": "B00 Not Affiliated with the Department ยังไม่สังกัดภาควิชา",
+        "value": "B00"
+    },
+    {
+        "key": "B01",
+        "text": "B01 Fishery Management การจัดการประมง",
+        "value": "B01"
+    },
+    {
+        "key": "B02",
+        "text": "B02 Fishery Biology ชีววิทยาประมง",
+        "value": "B02"
+    },
+    {
+        "key": "B03",
+        "text": "B03 Aquaculture เพาะเลี้ยงสัตว์น้ำ",
+        "value": "B03"
+    },
+    {
+        "key": "B04",
+        "text": "B04 Fishery Products ผลิตภัณฑ์ประมง",
+        "value": "B04"
+    },
+    {
+        "key": "B05",
+        "text": "B05 Marine Science วิทยาศาสตร์ทางทะเล",
+        "value": "B05"
+    },
+    {
+        "key": "C00",
+        "text": "C00 Not Affiliated with the Department ยังไม่สังกัดภาควิชา",
+        "value": "C00"
+    },
+    {
+        "key": "C02",
+        "text": "C02 Forest Biology วิทยาศาสตร์ชีวภาพป่าไม้",
+        "value": "C02"
+    },
+    {
+        "key": "C04",
+        "text": "C04 Silvery วนวัฒนวิทยา",
+        "value": "C04"
+    },
+    {
+        "key": "C05",
+        "text": "C05 Forest Engineering วิศวกรรมป่าไม้",
+        "value": "C05"
+    },
+    {
+        "key": "C07",
+        "text": "C07 Community Forestry วนศาสตร์ชุมชน",
+        "value": "C07"
+    },
+    {
+        "key": "C08",
+        "text": "C08 Watershed Management and Environment การจัดการลุ่มน้ำและสิ่งแวดล้อม",
+        "value": "C08"
+    },
+    {
+        "key": "C09",
+        "text": "C09 Recreation and Tourism Park อุทยานนันทนาการและการท่องเที่ยว",
+        "value": "C09"
+    },
+    {
+        "key": "C10",
+        "text": "C10 Wildlife Management and Pasture การจัดการสัตว์ป่าและทุ่งหญ้า",
+        "value": "C10"
+    },
+    {
+        "key": "C11",
+        "text": "C11 Community Forestry - Sociology and Anthropology วนศาสตร์ชุมชน-สังคมวิทยาและมานุษยวิทยา",
+        "value": "C11"
+    },
+    {
+        "key": "C12",
+        "text": "C12 Forest Management การจัดการป่าไม้",
+        "value": "C12"
+    },
+    {
+        "key": "C31",
+        "text": "C31 Wood Science and Technology วิทยาศาสตร์และเทคโนโลยีทางไม้",
+        "value": "C31"
+    },
+    {
+        "key": "C32",
+        "text": "C32 Pulp and Paper Technology เทคโนโลยีเยื่อและกระดาษ",
+        "value": "C32"
+    },
+    {
+        "key": "C33",
+        "text": "C33 Wood and Paper Products Technology เทคโนโลยีผลิตภัณฑ์ไม้และกระดาษ",
+        "value": "C33"
+    },
+    {
+        "key": "D01",
+        "text": "D01 Mathematics คณิตศาสตร์",
+        "value": "D01"
+    },
+    {
+        "key": "D02",
+        "text": "D02 Chemistry เคมี",
+        "value": "D02"
+    },
+    {
+        "key": "D03",
+        "text": "D03 Biology ชีววิทยา",
+        "value": "D03"
+    },
+    {
+        "key": "D04",
+        "text": "D04 Statistics สถิติ",
+        "value": "D04"
+    },
+    {
+        "key": "D06",
+        "text": "D06 Applied Radiation and Isotopes รังสีประยุกต์และไอโซโทป",
+        "value": "D06"
+    },
+    {
+        "key": "D07",
+        "text": "D07 Physics ฟิสิกส์",
+        "value": "D07"
+    },
+    {
+        "key": "D09",
+        "text": "D09 Microbiology จุลชีววิทยา",
+        "value": "D09"
+    },
+    {
+        "key": "D10",
+        "text": "D10 Genetics พันธุศาสตร์",
+        "value": "D10"
+    },
+    {
+        "key": "D11",
+        "text": "D11 Botany พฤกษศาสตร์",
+        "value": "D11"
+    },
+    {
+        "key": "D12",
+        "text": "D12 Zoology สัตววิทยา",
+        "value": "D12"
+    },
+    {
+        "key": "D13",
+        "text": "D13 Biochemistry ชีวเคมี",
+        "value": "D13"
+    },
+    {
+        "key": "D14",
+        "text": "D14 Computer Science วิทยาการคอมพิวเตอร์",
+        "value": "D14"
+    },
+    {
+        "key": "D16",
+        "text": "D16 Earth Science วิทยาศาสตร์พื้นพิภพ",
+        "value": "D16"
+    },
+    {
+        "key": "D17",
+        "text": "D17 Industrial Chemistry เคมีอุตสาหกรรม",
+        "value": "D17"
+    },
+    {
+        "key": "D18",
+        "text": "D18 Radiation Biosciences วิทยาศาสตร์ชีีวภาพรังสี",
+        "value": "D18"
+    },
+    {
+        "key": "D19",
+        "text": "D19 Nuclear Science วิทยาศาสตร์นิวเคลียร์",
+        "value": "D19"
+    },
+    {
+        "key": "D20",
+        "text": "D20 Life Science and Technology วิทยาศาสตร์ชีวภาพและเทคโนโลยี",
+        "value": "D20"
+    },
+    {
+        "key": "D32",
+        "text": "D32 Prepare the Medicine เตรียมแพทยศาสตร์",
+        "value": "D32"
+    },
+    {
+        "key": "E03",
+        "text": "E03 Mechanical Engineering วิศวกรรมเครื่องกล",
+        "value": "E03"
+    },
+    {
+        "key": "E05",
+        "text": "E05 Electrical Engineering วิศวกรรมไฟฟ้า",
+        "value": "E05"
+    },
+    {
+        "key": "E06",
+        "text": "E06 Civil engineering วิศวกรรมโยธา",
+        "value": "E06"
+    },
+    {
+        "key": "E08",
+        "text": "E08 Industrial Engineering วิศวกรรมอุตสาหการ",
+        "value": "E08"
+    },
+    {
+        "key": "E09",
+        "text": "E09 Computer Engineering วิศวกรรมคอมพิวเตอร์",
+        "value": "E09"
+    },
+    {
+        "key": "E10",
+        "text": "E10 Chemical Engineering วิศวกรรมเคมี",
+        "value": "E10"
+    },
+    {
+        "key": "E11",
+        "text": "E11 Electrical Engineering วิศวกรรมไฟฟ้าเครื่องกลการผลิต",
+        "value": "E11"
+    },
+    {
+        "key": "E13",
+        "text": "E13 Aerospace Engineering วิศวกรรมการบินและอวกาศ",
+        "value": "E13"
+    },
+    {
+        "key": "E14",
+        "text": "E14 Environmental Engineering วิศวกรรมสิ่งแวดล้อม",
+        "value": "E14"
+    },
+    {
+        "key": "E16",
+        "text": "E16 Materials Engineering วิศวกรรมวัสดุ",
+        "value": "E16"
+    },
+    {
+        "key": "E17",
+        "text": "E17 Software Knowledge Engineering วิศวกรรมซอฟต์แวร์และความรู้",
+        "value": "E17"
+    },
+    {
+        "key": "E18",
+        "text": "E18 Geological Surveying and Engineering วิศวกรรมสำรวจและสารสนเทศภูมิศาสตร์",
+        "value": "E18"
+    },
+    {
+        "key": "E21",
+        "text": "E21 Civil Engineering - Water Resources วิศวกรรมโยธา-ทรัพยากรน้ำ",
+        "value": "E21"
+    },
+    {
+        "key": "E22",
+        "text": "E22 Aviation Technology Management การจัดการเทคโนโลยีการบิน",
+        "value": "E22"
+    },
+    {
+        "key": "E23",
+        "text": "E23 Aerospace Engineering - Business Administration วิศวกรรมการบินและอวกาศ-บริหารธุรกิจ",
+        "value": "E23"
+    },
+    {
+        "key": "E26",
+        "text": "E26 Electrical Engineering (International Program) วิศวกรรมไฟฟ้า(ภาคภาษาอังกฤษ)",
+        "value": "E26"
+    },
+    {
+        "key": "E27",
+        "text": "E27 Industrial Engineering (International Program) วิศวกรรมอุตสาหการ(ภาคภาษาอังกฤษ)",
+        "value": "E27"
+    },
+    {
+        "key": "E28",
+        "text": "E28 Environmental Engineering (International Program) วิศวกรรมสิ่งแวดล้อม(ภาคภาษาอังกฤษ)",
+        "value": "E28"
+    },
+    {
+        "key": "E35",
+        "text": "E35 Not Affiliated with the Department ปี1วิศวกรรมศาสตร์(บางเขน)",
+        "value": "E35"
+    },
+    {
+        "key": "F11",
+        "text": "F11 Gymnastics พลศึกษา",
+        "value": "F11"
+    },
+    {
+        "key": "F12",
+        "text": "F12 Health Education สุขศึกษา",
+        "value": "F12"
+    },
+    {
+        "key": "F14",
+        "text": "F14 Home Economics คหกรรมศาสตรศึกษา",
+        "value": "F14"
+    },
+    {
+        "key": "F16",
+        "text": "F16 Teaching Mathematics การสอนคณิตศาสตร์",
+        "value": "F16"
+    },
+    {
+        "key": "F17",
+        "text": "F17 Teaching Science การสอนวิทยาศาสตร์",
+        "value": "F17"
+    },
+    {
+        "key": "F18",
+        "text": "F18 Business and Computer Education ธุรกิจและคอมพิวเตอร์ศึกษา",
+        "value": "F18"
+    },
+    {
+        "key": "G01",
+        "text": "G01 Economics เศรษฐศาสตร์",
+        "value": "G01"
+    },
+    {
+        "key": "G02",
+        "text": "G02 Agricultural Economics เศรษฐศาสตร์เกษตร",
+        "value": "G02"
+    },
+    {
+        "key": "G03",
+        "text": "G03 Cooperatives Economics เศรษฐศาสตร์สหกรณ์",
+        "value": "G03"
+    },
+    {
+        "key": "G04",
+        "text": "G04 Agricultural and Resource Economics เศรษฐศาสตร์เกษตรและทรัพยากร",
+        "value": "G04"
+    },
+    {
+        "key": "G11",
+        "text": "G11 Entrepreneurial Economics เศรษฐศาสตร์การประกอบการ",
+        "value": "G11"
+    },
+    {
+        "key": "G12",
+        "text": "G12 Enterpreneurial Economics (International Program) เศรษฐศาสตร์(หลักสูตรภาษาอังกฤษ)",
+        "value": "G12"
+    },
+    {
+        "key": "G21",
+        "text": "G21 Agribusiness ธุรกิจการเกษตร",
+        "value": "G21"
+    },
+    {
+        "key": "H01",
+        "text": "H01 Sociology and Anthropology สังคมวิทยาและมานุษยวิทยา",
+        "value": "H01"
+    },
+    {
+        "key": "H02",
+        "text": "H02 Psychology จิตวิทยา",
+        "value": "H02"
+    },
+    {
+        "key": "H03",
+        "text": "H03 Political Science รัฐศาสตร์",
+        "value": "H03"
+    },
+    {
+        "key": "H04",
+        "text": "H04 Geography ภูมิศาสตร์",
+        "value": "H04"
+    },
+    {
+        "key": "H06",
+        "text": "H06 Laws นิติศาสตร์",
+        "value": "H06"
+    },
+    {
+        "key": "H07",
+        "text": "H07 History ประวัติศาสตร์",
+        "value": "H07"
+    },
+    {
+        "key": "H08",
+        "text": "H08 Southeast Asian Studies เอเชียตะวันออกเฉียงใต้ศึกษา",
+        "value": "H08"
+    },
+    {
+        "key": "H09",
+        "text": "H09 Public Administration รัฐประศาสนศาสตร์",
+        "value": "H09"
+    },
+    {
+        "key": "I00",
+        "text": "I00 Not Affiliated with the Department ยังไม่สังกัดภาควิชา",
+        "value": "I00"
+    },
+    {
+        "key": "K01",
+        "text": "K01 Packing Technology เทคโนโลยีการบรรจุ",
+        "value": "K01"
+    },
+    {
+        "key": "K02",
+        "text": "K02 Biotechnology เทคโนโลยีชีวภาพ",
+        "value": "K02"
+    },
+    {
+        "key": "K03",
+        "text": "K03 Agro-Industrial Product Development พัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+        "value": "K03"
+    },
+    {
+        "key": "K04",
+        "text": "K04 Food Science and Technology วิทยาศาสตร์และเทคโนโลยีการอาหาร",
+        "value": "K04"
+    },
+    {
+        "key": "K05",
+        "text": "K05 Textile Science and Technology วิทยาศาสตร์และเทคโนโลยีสิ่งทอ",
+        "value": "K05"
+    },
+    {
+        "key": "K07",
+        "text": "K07 Innovation and Technology of Agro-Industry นวัตกรรมและเทคโนโลยีอุตสาหกรรมเกษตร",
+        "value": "K07"
+    },
+    {
+        "key": "K41",
+        "text": "K41 Food Engineering วิศวกรรมอาหาร",
+        "value": "K41"
+    },
+    {
+        "key": "L02",
+        "text": "L02 Philosophy and Religion ปรัชญาและศาสนา",
+        "value": "L02"
+    },
+    {
+        "key": "L32",
+        "text": "L32 English ภาษาอังกฤษ",
+        "value": "L32"
+    },
+    {
+        "key": "L33",
+        "text": "L33 French ภาษาฝรั่งเศส",
+        "value": "L33"
+    },
+    {
+        "key": "L34",
+        "text": "L34 German ภาษาเยอรมัน",
+        "value": "L34"
+    },
+    {
+        "key": "L35",
+        "text": "L35 Japanese ภาษาญี่ปุ่น",
+        "value": "L35"
+    },
+    {
+        "key": "L36",
+        "text": "L36 Chinese ภาษาจีน",
+        "value": "L36"
+    },
+    {
+        "key": "L50",
+        "text": "L50 Literature วรรณคดีี",
+        "value": "L50"
+    },
+    {
+        "key": "L71",
+        "text": "L71 Mass Communication สื่อสารมวลชน",
+        "value": "L71"
+    },
+    {
+        "key": "L72",
+        "text": "L72 Thai Music ดนตรีไทย",
+        "value": "L72"
+    },
+    {
+        "key": "L73",
+        "text": "L73 Western Music ดนตรีีตะวันตก",
+        "value": "L73"
+    },
+    {
+        "key": "L81",
+        "text": "L81 Thai ภาษาไทย",
+        "value": "L81"
+    },
+    {
+        "key": "L85",
+        "text": "L85 Communicative Thai Language for Foreigners ภาษาไทยเพื่อการสื่อสารสำหรับชาวต่างประเทศ",
+        "value": "L85"
+    },
+    {
+        "key": "L86",
+        "text": "L86 Integrated Tourism Management การจัดการการท่องเที่ยวเชิงบูรณาการ",
+        "value": "L86"
+    },
+    {
+        "key": "L87",
+        "text": "L87 Tourism การท่องเที่ยว",
+        "value": "L87"
+    },
+    {
+        "key": "L88",
+        "text": "L88 Eastern Languages ภาษาตะวันออก",
+        "value": "L88"
+    },
+    {
+        "key": "L89",
+        "text": "L89 Tourism Innovation นวัตกรรมการท่องเที่ยว",
+        "value": "L89"
+    },
+    {
+        "key": "R01",
+        "text": "R01 Architecture สถาปัตยกรรมศาสตร์",
+        "value": "R01"
+    },
+    {
+        "key": "R02",
+        "text": "R02 Landscape Architecture ภูมิิสถาปัตยกรรมศาสตร์",
+        "value": "R02"
+    },
+    {
+        "key": "R03",
+        "text": "R03 Architecture สถาปัตยกรรม",
+        "value": "R03"
+    },
+    {
+        "key": "N01",
+        "text": "N01 Finance การเงิน",
+        "value": "N01"
+    },
+    {
+        "key": "N02",
+        "text": "N02 Management การจัดการ",
+        "value": "N02"
+    },
+    {
+        "key": "N03",
+        "text": "N03 Operations Management การจัดการการผลิต",
+        "value": "N03"
+    },
+    {
+        "key": "N04",
+        "text": "N04 Marketing การตลาด",
+        "value": "N04"
+    },
+    {
+        "key": "N05",
+        "text": "N05 Accounting บัญชี",
+        "value": "N05"
+    },
+    {
+        "key": "P01",
+        "text": "P01 Veterinary Technician เทคนิคการสัตวแพทย์",
+        "value": "P01"
+    },
+    {
+        "key": "P02",
+        "text": "P02 Animal Nursing การพยาบาลสัตว์",
+        "value": "P02"
+    },
+    {
+        "key": "T01",
+        "text": "T01 Environmental Science วิทยาศาสตร์สิ่งแวดล้อม",
+        "value": "T01"
+    },
+    {
+        "key": "T02",
+        "text": "T02 Environmental Science and Technology วิทยาศาสตร์และเทคโนโลยีสิ่งแวดล้อม",
+        "value": "T02"
+    }
+]

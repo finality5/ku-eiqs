@@ -5,7 +5,7 @@ export class studentFilter extends Component {
   state = {
     year: "",
     semester: "",
-    midfin:"",
+    mf:"",
     dropYear: "",
     dropSem: "",
     dropMidfin:"",
@@ -17,11 +17,11 @@ export class studentFilter extends Component {
       token: this.props.userData.token,
       name: this.props.userData.userdata.name,
       group: this.props.userData.group,
-      data: { year: this.state.year, semester: this.state.semester ,midfinal: this.state.midfin }
+      data: { year: this.state.year, semester: this.state.semester ,mf: this.state.mf }
     };
     
     console.log("@",returnData)
-    if (this.state.year !== "" && this.state.semester !== "" && this.state.midfin !=="") {
+    if (this.state.year !== "" && this.state.semester !== "" && this.state.mf !=="") {
       this.setState({ warningStyle: { display: "none" } });
       
       axios.post("https://ku-eiqs-backend.herokuapp.com/login",returnData).then(res => {
@@ -115,9 +115,9 @@ export class studentFilter extends Component {
             },
             {
               menuItem: (
-                <Menu.Item key="midfin">
+                <Menu.Item key="mf">
                   Mid/Final&nbsp;&nbsp;&nbsp;&nbsp;
-                  {this.state.midfin !== "" ? (
+                  {this.state.mf !== "" ? (
                     <Icon name="check circle" color="green" fitted />
                   ) : (
                     <Icon name="search" fitted />
@@ -144,7 +144,7 @@ export class studentFilter extends Component {
                     ]}
                     value={this.state.dropMidfin}
                     onChange={(e, { value }) => {
-                      this.setState({ midfin: value });
+                      this.setState({ mf: value });
                       this.setState({ dropMidfin: value });
                     }}
                   />

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { SubjectsDrop } from "./subjectsDrop";
 import { SubjectsObj } from "./subjectsObj";
-import {Faculty} from "./faculty";
+import {Room,Dep,Time,Faculty} from "./data";
 import {
   Menu,
   Tab,
@@ -157,8 +157,27 @@ export class teacherFilter extends Component {
           
           console.log("@",returnData)
         this.setState({ warningStyle: { display: "none" } });
-        console.log('&',"Ready! post")
-         axios.post("https://ku-eiqs-backend.herokuapp.com/login",returnData).then(res => {
+        
+         axios.post("https://ku-eiqs-backend.herokuapp.com/login",{
+          token: this.props.userData.token,
+          name: this.props.userData.userdata.name,
+          group: this.props.userData.group,
+          data: {
+              stdid:this.state.stdid,
+              stdfname:this.state.stdfname, 
+              stdlname:this.state.stdlname,
+              room:this.state.room,
+              sec:this.state.sec,
+              course:this.state.course,
+              depid:this.state.depid,
+              facid:this.state.facid,
+              date:this.state.date,
+              time:this.state.time,
+              year:this.state.year,
+              sem:this.state.sem,
+              mf:this.state.mf
+              }
+        }).then(res => {
            console.log(res);
            this.props.filteredData(res);
          });
@@ -289,7 +308,30 @@ export class teacherFilter extends Component {
             </span>
           </Menu.Item>
         ),
-        render: () => <Tab.Pane>Tab 1 Content</Tab.Pane>
+        render: () => <Tab.Pane><div style={{ textAlign: "center" }}>
+        <Icon name="building" size="huge" />
+      </div>
+      <div style={{ textAlign: "center",marginTop: "1em" }}>
+        <Header>Room</Header>
+      </div>
+      <div style={{ textAlign: "center", marginTop: "1em" }}>
+        <Dropdown
+          placeholder="Select Room"
+          className="backgroundColor:#A5D2FF"
+          fluid
+          lazyLoad
+          search
+          selection
+          options={Room}
+          value={this.state.dropRoom}
+          onChange={(e, { value }) => {
+            this.setState({
+              room:value
+            });
+            this.setState({ dropRoom: value });
+          }}
+        />
+      </div></Tab.Pane>
       },
       {
         key: "sec",
@@ -379,7 +421,7 @@ export class teacherFilter extends Component {
         menuItem: (
           <Menu.Item key="depid">
             <span>
-              Department ID&nbsp;&nbsp;&nbsp;&nbsp;
+              Department&nbsp;&nbsp;&nbsp;&nbsp;
               {this.state.depid !== "" ? (
                 <Icon name="check circle" color="green" fitted />
               ) : (
@@ -388,14 +430,37 @@ export class teacherFilter extends Component {
             </span>
           </Menu.Item>
         ),
-        render: () => <Tab.Pane>Tab 1 Content</Tab.Pane>
+        render: () => <Tab.Pane><div style={{ textAlign: "center" }}>
+        <Icon name="building outline" size="huge" />
+      </div>
+      <div style={{ textAlign: "center",marginTop: "1em" }}>
+        <Header>Department</Header>
+      </div>
+      <div style={{ textAlign: "center", marginTop: "1em" }}>
+        <Dropdown
+          placeholder="Select Department"
+          className="backgroundColor:#A5D2FF"
+          fluid
+          lazyLoad
+          search
+          selection
+          options={Dep}
+          value={this.state.dropDepid}
+          onChange={(e, { value }) => {
+            this.setState({
+              depid:value
+            });
+            this.setState({ dropDepid: value });
+          }}
+        />
+      </div></Tab.Pane>
       },
       {
         key: "facid",
         menuItem: (
           <Menu.Item key="facid">
             <span>
-              Faculty ID&nbsp;&nbsp;&nbsp;&nbsp;
+              Faculty&nbsp;&nbsp;&nbsp;&nbsp;
               {this.state.facid !== "" ? (
                 <Icon name="check circle" color="green" fitted />
               ) : (
@@ -408,11 +473,11 @@ export class teacherFilter extends Component {
         <Icon name="building outline" size="huge" />
       </div>
       <div style={{ textAlign: "center",marginTop: "1em" }}>
-        <Header>Faculty ID</Header>
+        <Header>Faculty</Header>
       </div>
       <div style={{ textAlign: "center", marginTop: "1em" }}>
         <Dropdown
-          placeholder="Subjects"
+          placeholder="Select Faculty"
           className="backgroundColor:#A5D2FF"
           fluid
           lazyLoad
@@ -478,7 +543,30 @@ export class teacherFilter extends Component {
             </span>
           </Menu.Item>
         ),
-        render: () => <Tab.Pane>Tab 1 Content</Tab.Pane>
+        render: () => <Tab.Pane><div style={{ textAlign: "center" }}>
+        <Icon name="clock" size="huge" />
+      </div>
+      <div style={{ textAlign: "center",marginTop: "1em" }}>
+        <Header>Time</Header>
+      </div>
+      <div style={{ textAlign: "center", marginTop: "1em" }}>
+        <Dropdown
+          placeholder="Select Time"
+          className="backgroundColor:#A5D2FF"
+          fluid
+          lazyLoad
+          search
+          selection
+          options={Time}
+          value={this.state.dropTime}
+          onChange={(e, { value }) => {
+            this.setState({
+              time:value
+            });
+            this.setState({ dropTime: value });
+          }}
+        />
+      </div></Tab.Pane>
       },
       {
         key: "year",
@@ -641,8 +729,8 @@ export class teacherFilter extends Component {
             { key: "room", text: "Room", value: "room" },
             { key: "sec", text: "Section", value: "sec" },
             { key: "course", text: "Course", value: "course" },
-            { key: "depid", text: "Department ID", value: "depid" },
-            { key: "facid", text: "Faculty ID", value: "facid" },
+            { key: "depid", text: "Department", value: "depid" },
+            { key: "facid", text: "Faculty", value: "facid" },
             { key: "date", text: "Date", value: "date" },
             { key: "time", text: "Time", value: "time" },
             { key: "year", text: "Year", value: "year" },
