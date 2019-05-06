@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Menu, Tab, Dropdown, Icon, Button, Message } from "semantic-ui-react";
+import {MidFin} from "./data";
 import axios from "axios";
 export class studentFilter extends Component {
   state = {
     year: "",
-    semester: "",
+    sem: "",
     mf:"",
     dropYear: "",
     dropSem: "",
@@ -16,11 +17,11 @@ export class studentFilter extends Component {
     let returnData = {
       token: this.props.userData.token,
       username: this.props.userData.userdata.name,
-      query_data: { year: this.state.year, semester: this.state.semester ,mf: this.state.mf }
+      query_data: { year: this.state.year, sem: this.state.sem ,mf: this.state.mf }
     };
     
-    console.log("@",returnData)
-    if (this.state.year !== "" && this.state.semester !== "" && this.state.mf !=="") {
+    
+    if (this.state.year !== "" && this.state.sem !== "" && this.state.mf !=="") {
       this.setState({ warningStyle: { display: "none" } });
       
       axios.post("https://ku-eiqs-backend.herokuapp.com/stdquery",returnData).then(res => {
@@ -33,7 +34,11 @@ export class studentFilter extends Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log({
+      token: this.props.userData.token,
+      username: this.props.userData.userdata.name,
+      query_data: { year: this.state.year, sem: this.state.sem ,mf: this.state.mf }
+    });
     return (
       <div>
         <Tab
@@ -76,9 +81,9 @@ export class studentFilter extends Component {
             },
             {
               menuItem: (
-                <Menu.Item key="semester">
+                <Menu.Item key="sem">
                   Semester&nbsp;&nbsp;&nbsp;&nbsp;
-                  {this.state.semester !== "" ? (
+                  {this.state.sem !== "" ? (
                     <Icon name="check circle" color="green" fitted />
                   ) : (
                     <Icon name="search" fitted />
@@ -105,7 +110,7 @@ export class studentFilter extends Component {
                     ]}
                     value={this.state.dropSem}
                     onChange={(e, { value }) => {
-                      this.setState({ semester: value });
+                      this.setState({ sem: value });
                       this.setState({ dropSem: value });
                     }}
                   />
@@ -129,18 +134,7 @@ export class studentFilter extends Component {
                     placeholder="Select Test"
                     fluid
                     selection
-                    options={[
-                      {
-                        key: "mid",
-                        text: "Midterm",
-                        value: "mid"
-                      },
-                      {
-                        key: "final",
-                        text: "Final",
-                        value: "final"
-                      }
-                    ]}
+                    options={MidFin}
                     value={this.state.dropMidfin}
                     onChange={(e, { value }) => {
                       this.setState({ mf: value });
@@ -155,7 +149,7 @@ export class studentFilter extends Component {
         <Message
           style={this.state.warningStyle}
           error
-          content="Please select year and semester"
+          content="Please select year semester and mid/final"
         />
         <Button type="submit" animated onClick={this.buttonSubmit} style={{marginTop:"1em"}}>
           <Button.Content visible>Submit</Button.Content>

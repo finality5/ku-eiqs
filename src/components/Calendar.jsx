@@ -1,29 +1,38 @@
 import React from "react";
 import dateFns from "date-fns";
-import {Icon} from "semantic-ui-react";
-import "../App.css"
+import { Icon, Popup } from "semantic-ui-react";
+import "../App.css";
 class Calendar extends React.Component {
   state = {
     currentMonth: new Date(),
     selectedDate: new Date()
   };
-  addID = (a) =>{
+  addID = a => {
     return a.map(Data => (
-      <div style={{backgroundImage:"linear-gradient(90deg, #e8e8e8 100%, #a6a6a6 0%)" , border:"1px solid white",borderRadius:"2px" , fontWeight:700 ,fontSize:"90%",
-      lineHeight: 1.5 , color:"#404040"}}>{Data.key}</div>
+      <div
+        style={{
+          backgroundImage: "linear-gradient(90deg, #e8e8e8 100%, #a6a6a6 0%)",
+          border: "1px solid white",
+          borderRadius: "2px",
+          fontWeight: 700,
+          fontSize: "90%",
+          lineHeight: 1.5,
+          color: "#404040"
+        }}
+      >
+        {Data.key}
+      </div>
+    ));
+  };
 
-    ))
-  }
-  
   renderHeader() {
     const dateFormat = "MMMM YYYY";
-    
+
     return (
-      
       <div className="header row flex-middle">
         <div className="col col-start">
           <div className="icon" onClick={this.prevMonth}>
-            <Icon name="chevron left"/>
+            <Icon name="chevron left" />
           </div>
         </div>
         <div className="col col-center">
@@ -31,7 +40,7 @@ class Calendar extends React.Component {
         </div>
         <div className="col col-end" onClick={this.nextMonth}>
           <div className="icon">
-          <Icon name="chevron right"/>
+            <Icon name="chevron right" />
           </div>
         </div>
       </div>
@@ -68,9 +77,8 @@ class Calendar extends React.Component {
     let days = [];
     let day = startDate;
     let formattedDate = "";
-    const cal=this.props.calDay;
-    
-    
+    const cal = this.props.calDay;
+
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         //console.log("#",day,"#")
@@ -78,50 +86,55 @@ class Calendar extends React.Component {
         formattedDate = dateFns.format(day, dateFormat);
         const cloneDay = day;
         let a = cal.filter(item => {
-          return(dateFns.parse(item.caldate).getTime()===cloneDay.getTime())
-        })
-       
-        
-        if(a.length>0){
-          
+          return dateFns.parse(item.caldate).getTime() === cloneDay.getTime();
+        });
+
+        if (a.length > 0) {
           days.push(
-          <div
-            className={`col cell ${
-              !dateFns.isSameMonth(day, monthStart)
-                ? "disabled"
-                : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
-            }`}
-            key={day}
-            onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
-          >
-            
-            <span className="number">{formattedDate}</span>
-            <span className="bg">{formattedDate} </span>
-            <div style={{marginTop:"1.5em"}}>
-            {this.addID(a)}
-            </div> 
-            
-          </div>
-        );}
-        else{
-        days.push(
-          <div
-            className={`col cell ${
-              !dateFns.isSameMonth(day, monthStart)
-                ? "disabled"
-                : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
-            }`}
-            key={day}
-            onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
-          >
-            
-            <span className="number">{formattedDate}</span>
-            <span className="bg">{formattedDate}</span>
-          </div>
-        );}
+            <Popup
+              trigger={
+                <div
+                  className={`col cell ${
+                    !dateFns.isSameMonth(day, monthStart)
+                      ? "disabled"
+                      : dateFns.isSameDay(day, selectedDate)
+                      ? "selected"
+                      : ""
+                  }`}
+                  key={day}
+                  onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+                >
+                  <span className="number">{formattedDate}</span>
+                  <span className="bg">{formattedDate} </span>
+                  <div style={{ marginTop: "1.5em" }}>{this.addID(a)}</div>
+                </div>
+              }
+
+              content='Sends an email invite to a friend.'
+              on='hover'
+            />
+          );
+        } else {
+          days.push(
+            <div
+              className={`col cell ${
+                !dateFns.isSameMonth(day, monthStart)
+                  ? "disabled"
+                  : dateFns.isSameDay(day, selectedDate)
+                  ? "selected"
+                  : ""
+              }`}
+              key={day}
+              onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+            >
+              <span className="number">{formattedDate}</span>
+              <span className="bg">{formattedDate}</span>
+            </div>
+          );
+        }
         day = dateFns.addDays(day, 1);
       }
-      
+
       rows.push(
         <div className="row" key={day}>
           {days}
@@ -151,7 +164,6 @@ class Calendar extends React.Component {
   };
 
   render() {
-   
     return (
       <div className="calendar">
         {this.renderHeader()}

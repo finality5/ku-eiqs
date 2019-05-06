@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { SubjectsDrop } from "./subjectsDrop";
 import { SubjectsObj } from "./subjectsObj";
-import { Room, Dep, Time, Faculty } from "./data";
+import { Room, Dep, Time, Faculty , MidFin} from "./data";
 import {
   Menu,
   Tab,
@@ -698,18 +698,7 @@ export class teacherFilter extends Component {
                 placeholder="Select Test"
                 fluid
                 selection
-                options={[
-                  {
-                    key: "mid",
-                    text: "Midterm",
-                    value: "mid"
-                  },
-                  {
-                    key: "final",
-                    text: "Final",
-                    value: "final"
-                  }
-                ]}
+                options={MidFin}
                 value={this.state.dropMidfin}
                 onChange={(e, { value }) => {
                   this.setState({ mf: value });
