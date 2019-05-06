@@ -129,9 +129,7 @@ class App extends Component {
 
         <Section
           title="KU EiQS"
-          subtitle={
-            "Kasetsart University Examination Information Querying System"
-          }
+          
           dark={true}
           id="section1"
         />
