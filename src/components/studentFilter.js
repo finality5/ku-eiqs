@@ -24,9 +24,9 @@ export class studentFilter extends Component {
     if (this.state.year !== "" && this.state.semester !== "" && this.state.mf !=="") {
       this.setState({ warningStyle: { display: "none" } });
       
-      axios.post("https://ku-eiqs-backend.herokuapp.com/login",returnData).then(res => {
+      axios.post("https://ku-eiqs-backend.herokuapp.com/stdquery",returnData).then(res => {
         console.log(res)
-        this.props.filteredData(res);
+        //this.props.filteredData(res);
       });
     } else {
       this.setState({ warningStyle: { display: "block" } });

@@ -158,7 +158,7 @@ export class teacherFilter extends Component {
           console.log("@",returnData)
         this.setState({ warningStyle: { display: "none" } });
         
-         axios.post("https://ku-eiqs-backend.herokuapp.com/login",{
+         axios.post("https://ku-eiqs-backend.herokuapp.com/adminquery",{
           token: this.props.userData.token,
           name: this.props.userData.userdata.name,
           group: this.props.userData.group,
@@ -178,8 +178,8 @@ export class teacherFilter extends Component {
               mf:this.state.mf
               }
         }).then(res => {
-           console.log(res);
-           this.props.filteredData(res);
+           console.log("*",res);
+           //this.props.filteredData(res);
          });
       } else {
         this.setState({ warningStyle: { display: "block" } });
