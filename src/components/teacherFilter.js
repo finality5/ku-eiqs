@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { SubjectsDrop } from "./subjectsDrop";
-import { SubjectsObj } from "./subjectsObj";
 import { Room, Dep, Time, Faculty , MidFin} from "./data";
 import {
   Menu,
@@ -143,7 +142,7 @@ export class teacherFilter extends Component {
             stdlname: this.state.stdlname,
             room: this.state.room,
             sec: this.state.sec,
-            course: this.state.course,
+            courseid: this.state.course,
             depid: this.state.depid,
             facid: this.state.facid,
             date: this.state.date,
@@ -172,7 +171,7 @@ export class teacherFilter extends Component {
         stdlname: this.state.stdlname,
         room: this.state.room,
         sec: this.state.sec,
-        course: this.state.course,
+        courseid: this.state.course,
         depid: this.state.depid,
         facid: this.state.facid,
         date: this.state.date,
@@ -401,10 +400,7 @@ export class teacherFilter extends Component {
                 value={this.state.dropCourse}
                 onChange={(e, { value }) => {
                   this.setState({
-                    course: {
-                      courseid: value,
-                      coursename: SubjectsObj[value].name
-                    }
+                    course: value
                   });
                   this.setState({ dropCourse: value });
                 }}
