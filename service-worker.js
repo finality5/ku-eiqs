@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/ku-eiqs/precache-manifest.c8fd93929be7c1f1843b15ee119660b1.js"
+  "/ku-eiqs-frontend/precache-manifest.2301f3bb670158462b910f415b4e887d.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/ku-eiqs/index.html", {
+workbox.routing.registerNavigationRoute("/ku-eiqs-frontend/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
