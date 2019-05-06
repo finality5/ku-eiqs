@@ -14,17 +14,17 @@ export class studentFilter extends Component {
   };
 
   buttonSubmit = () => {
-    let returnData = {
-      token: this.props.userData.token,
-      username: this.props.userData.userdata.name,
-      query_data: { year: this.state.year, sem: this.state.sem ,mf: this.state.mf }
-    };
+    
     
     
     if (this.state.year !== "" && this.state.sem !== "" && this.state.mf !=="") {
       this.setState({ warningStyle: { display: "none" } });
       
-      axios.post("https://ku-eiqs-backend.herokuapp.com/stdquery",returnData).then(res => {
+      axios.post("https://ku-eiqs-backend.herokuapp.com/stdquery",{
+        token: this.props.userData.token,
+        username: this.props.userData.userdata.uid,
+        query_data: { year: this.state.year, sem: this.state.sem ,mf: this.state.mf }
+      }).then(res => {
         console.log('*',res)
         this.props.filteredData(res);
       });
@@ -34,7 +34,11 @@ export class studentFilter extends Component {
   };
 
   render() {
-    
+    console.log('$',{
+      token: this.props.userData.token,
+      username: this.props.userData.userdata.uid,
+      query_data: { year: this.state.year, sem: this.state.sem ,mf: this.state.mf }
+    })
     return (
       <div>
         <Tab
