@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "afadba2af42610c8d948",
+    "revision": "90b788bbf1348de188cd",
     "url": "/ku-eiqs/static/css/main.70cc6574.chunk.css"
   },
   {
-    "revision": "afadba2af42610c8d948",
-    "url": "/ku-eiqs/static/js/main.5a2dca0a.chunk.js"
+    "revision": "90b788bbf1348de188cd",
+    "url": "/ku-eiqs/static/js/main.c891ba50.chunk.js"
   },
   {
     "revision": "737804f5504062af6646",
@@ -88,7 +88,7 @@ self.__precacheManifest = [
     "url": "/ku-eiqs/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "d595e6afd1a34a98dfc19a00616b8b94",
+    "revision": "38755128e542252f22ce637d80faf106",
     "url": "/ku-eiqs/index.html"
   }
 ];
