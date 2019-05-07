@@ -137,7 +137,7 @@ export class teacherFilter extends Component {
       axios
         .post("https://ku-eiqs-backend.herokuapp.com/adminquery", {
           token: this.props.userData.token,
-          username: this.props.userData.userdata.name,
+          username: this.props.userData.userdata.uid,
           query_data: {
             stdid: this.state.stdid,
             stdfname: this.state.stdfname,

@@ -17,13 +17,13 @@ export class Filter extends Component {
         </List.Item>
 
         <List.Item>
-        
-          <Icon name="id badge outline" size="large"  />
+        <Icon name="id badge outline" size="large"  />
           <List.Content>
             <List.Header>
             {this.props.userData.userdata.stdid}
             </List.Header>
           </List.Content>
+          
           <Icon name="at" size="large"  />
           <List.Content>
             <List.Header>
@@ -52,6 +52,7 @@ export class Filter extends Component {
           </List.Content>
         </List.Item>
 
+       
         <List.Item>
           <Icon name="mail" size="large"  />
           <List.Content>
