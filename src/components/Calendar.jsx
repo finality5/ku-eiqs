@@ -145,7 +145,7 @@ class Calendar extends React.Component {
           days.push(
             <Popup
               key={day}
-              wide='very'
+              wide
               trigger={
                 <div
                   className={`col cell ${
