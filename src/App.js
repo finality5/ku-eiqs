@@ -122,7 +122,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.loginData)
+    
     return (
       <div>
         <Navbar />
