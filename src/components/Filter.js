@@ -27,7 +27,7 @@ export class Filter extends Component {
           <Icon name="at" size="large"  />
           <List.Content>
             <List.Header>
-              {this.props.userData.group === "s" ? "Student" : "Lecturer"}
+              {this.props.userData.group === "s" ? "Student" : "Admin"}
             </List.Header>
           </List.Content>
         </List.Item>
