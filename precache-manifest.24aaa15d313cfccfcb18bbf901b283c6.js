@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "90b788bbf1348de188cd",
+    "revision": "a06d96f701f8aa678718",
     "url": "/ku-eiqs/static/css/main.70cc6574.chunk.css"
   },
   {
-    "revision": "90b788bbf1348de188cd",
-    "url": "/ku-eiqs/static/js/main.c891ba50.chunk.js"
+    "revision": "a06d96f701f8aa678718",
+    "url": "/ku-eiqs/static/js/main.50cf6673.chunk.js"
   },
   {
     "revision": "737804f5504062af6646",
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/ku-eiqs/static/media/flags.9c74e172.png"
   },
   {
-    "revision": "cd6c777f1945164224dee082abaea03a",
-    "url": "/ku-eiqs/static/media/outline-icons.cd6c777f.woff2"
-  },
-  {
     "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
     "url": "/ku-eiqs/static/media/outline-icons.ef60a4f6.woff"
+  },
+  {
+    "revision": "cd6c777f1945164224dee082abaea03a",
+    "url": "/ku-eiqs/static/media/outline-icons.cd6c777f.woff2"
   },
   {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
@@ -88,7 +88,7 @@ self.__precacheManifest = [
     "url": "/ku-eiqs/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "38755128e542252f22ce637d80faf106",
+    "revision": "5c781ee23cc9182f3d3a62fba22fa5f9",
     "url": "/ku-eiqs/index.html"
   }
 ];
