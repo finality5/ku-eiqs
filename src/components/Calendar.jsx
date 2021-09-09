@@ -4,7 +4,7 @@ import { Icon, Popup,List } from "semantic-ui-react";
 import "../App.css";
 class Calendar extends React.Component {
   state = {
-    currentMonth: new Date(),
+    currentMonth: new Date(2019, 4),
     selectedDate: new Date()
   };
   addID = a => {
@@ -130,6 +130,7 @@ class Calendar extends React.Component {
     let day = startDate;
     let formattedDate = "";
     const cal = this.props.calDay;
+    //console.log('#',cal)
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
