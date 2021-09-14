@@ -18,7 +18,7 @@
     "react-select": "^2.4.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.86.0",
-    "set-value": "^3.0.1"
+    "set-value": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
